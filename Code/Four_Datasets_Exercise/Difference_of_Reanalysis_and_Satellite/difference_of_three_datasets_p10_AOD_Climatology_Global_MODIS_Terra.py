@@ -318,218 +318,602 @@ ds10 = xr.open_mfdataset(naaps_reanalysis_fil_list)
 #print(ds10)
 
 # Cell 5.
-# Plotting the difference between MEERA2 Reanalysis and MEERA2 Satellite
+# MEERA2 satellite data
+data = ds5['aod']
 
 proj_map = ccrs.PlateCarree()
 proj_data = ccrs.PlateCarree()
 
-# Configure cmap for ds5 and ds6 datasets
-cmap = plt.get_cmap('YlOrBr')
-cmap.set_under('w')
 
-# Configure cmap for difference
-cmap_difference=plt.get_cmap('coolwarm')
+#The following block creates a figure (fig) containing a 3x2 grid of subplots (axs).
+fig, axs = plt.subplots(5,3,
+                        #Specifies that each subplot should use the proj_map projection defined earler.
+                        subplot_kw={'projection': proj_map},
+                        #sets the spacing between the subplots with a small horizontal space (wsapce) and vertical space (hspace). More parameters like figsize and constrained_layout are set to customize size and layout.
+                        gridspec_kw={'hspace': 0.1, 'wspace': 0.01}, #When is adjusted wspace it did not make the subplots come closer together widthwise???
+                        **{'figsize': [10, 8], 'constrained_layout': False},
+                        )
+#Prints the axs varialbe which contains references to the individual subplots creaetd in the previous step.
+print(axs)
 
-# An array of levels for data contouring.
+#These lines convert the axs object, which is initially a 2D array of subplots, into a 1D array using axs.flat.
+axs = axs.transpose().flat
+
+#An empty list that will store contourf or pseudocolor objects for each subplot.
+cf_list = []
+
+#A list of subplot titles.
+title = ['June 14','June 15','June 16','June 17','June 18','June 19','June 20','June 21','June 22','June 23','June 24','June 25','June 26','June 27','June 28', ]
+
+#A color map (colormap) for visualizing data.
+cmap=plot.get_cmap('MPL_YlOrBr')
+cmap.set_under('w') # changes the background of anything that is not AOD to white (10.30.23)
+#cmap
+
+#An array of levels for data contouring.
 levs = [0.4, 0.7, 1.0, 1.5, 2, 2.5, 3]
-difference_levs = [-3.0, -2.0, -1.5, -1.0, -0.5, 0, 0.5, 1.0, 1.5, 2.0, 3.0]
 
-# A normalization object that maps data values to colors based on the defined levels.
+#A normalization object that maps data values to colors based on the defined levels.
 norm = BoundaryNorm(levs, ncolors=cmap.N, extend='both')
+
+step = 1 #alters the resolution...the lower the number, the better the resolution...this variable appears in cf_list variable down below.
+for idx, ax in enumerate(axs):
+    #Configures the maps settings for the current subplot.
+    map_conf(ax)
+    ax.text(-107, 3, title[idx], fontsize=8) #reformats where the data shows up on the figure.
+    cf_list += [ax.pcolormesh(data.lon[::step], data.lat[::step], data[idx, ::step, ::step],
+                              shading='auto',
+                              norm=norm,
+                              cmap=cmap,
+                              transform=proj_data,
+                            )]
+
+    #Subplots with idx less than or equal to 2 have their x-axis tick labels removed.
+    if idx <= 2:
+            ax.set_xticklabels([])
+
+    #Subplots with idx equal to 2 or 4 have their y-axis tick labels removed.
+    if idx == 2 or idx==4:
+            ax.set_yticklabels([])
+
+    
+
+#A color bar axis (cb_ax) is added to the figure. This axis is positioned at specific coordinates within the figure and has a defined width and height. The first two values represent x and y of the
+#entire color bar, while the next x and y represent the actual gradient bar.
+cb_ax = fig.add_axes([0.22, 0.05, 0.6, 0.02])
+
+#The color_bar function is called to create and customize a color bar based on the pseudocolor plots in cf_list[4]. The color bar is configured with a label and horizontal orientation, and tick steps are specified.
+color_bar(fig, cf_list[4], cb_ax, label='MEERA2 Satellite (aod)', orientation='horizontal', tickstep=1)
+
+plt.show()
+
+# Cell 6.
+# MEERA2 reanalysis data
+
+data = ds6['TOTEXTTAU']
+
+proj_map = ccrs.PlateCarree()
+proj_data = ccrs.PlateCarree()
+
+
+#The following block creates a figure (fig) containing a 3x2 grid of subplots (axs).
+fig, axs = plt.subplots(5,3,
+                        #Specifies that each subplot should use the proj_map projection defined earler.
+                        subplot_kw={'projection': proj_map},
+                        #sets the spacing between the subplots with a small horizontal space (wsapce) and vertical space (hspace). More parameters like figsize and constrained_layout are set to customize size and layout.
+                        gridspec_kw={'hspace': 0.1, 'wspace': 0.01},#When is adjusted wspace it did not make the subplots come closer together widthwise???
+                        **{'figsize': [10, 8], 'constrained_layout': False},
+                        )
+#Prints the axs varialbe which contains references to the individual subplots creaetd in the previous step.
+print(axs)
+
+#These lines convert the axs object, which is initially a 2D array of subplots, into a 1D array using axs.flat.
+axs = axs.transpose().flat
+
+#An empty list that will store contourf or pseudocolor objects for each subplot.
+cf_list = []
+
+#A list of subplot titles.
+title = ['June 14','June 15','June 16','June 17','June 18','June 19','June 20','June 21','June 22','June 23','June 24','June 25','June 26','June 27','June 28', ]
+
+#A color map (colormap) for visualizing data.
+cmap=plot.get_cmap('MPL_YlOrBr')
+cmap.set_under('w') # changes the background of anything that is not AOD to white (10.30.23)
+#cmap
+
+#An array of levels for data contouring.
+levs = [0.4, 0.7, 1.0, 1.5, 2, 2.5, 3]
+
+#A normalization object that maps data values to colors based on the defined levels.
+norm = BoundaryNorm(levs, ncolors=cmap.N, extend='both')
+
+step = 1 #alters the resolution...the lower the number, the better the resolution...this variable appears in cf_list variable down below.
+for idx, ax in enumerate(axs):
+    #Configures the maps settings for the current subplot.
+    map_conf(ax)
+    ax.text(-107, 3, title[idx], fontsize=8) #reformats where the data shows up on the figure.
+    cf_list += [ax.pcolormesh(data.lon[::step], data.lat[::step], data[idx, ::step, ::step],
+                              shading='auto',
+                              norm=norm,
+                              cmap=cmap,
+                              transform=proj_data,
+                            )]
+
+    #Subplots with idx less than or equal to 2 have their x-axis tick labels removed.
+    if idx <= 2:
+            ax.set_xticklabels([])
+
+    #Subplots with idx equal to 2 or 4 have their y-axis tick labels removed.
+    if idx == 2 or idx==4:
+            ax.set_yticklabels([])
+
+    
+
+#A color bar axis (cb_ax) is added to the figure. This axis is positioned at specific coordinates within the figure and has a defined width and height. The first two values represent x and y of the
+#entire color bar, while the next x and y represent the actual gradient bar.
+cb_ax = fig.add_axes([0.22, 0.05, 0.6, 0.02])
+
+#The color_bar function is called to create and customize a color bar based on the pseudocolor plots in cf_list[4]. The color bar is configured with a label and horizontal orientation, and tick steps are specified.
+color_bar(fig, cf_list[4], cb_ax, label='MEERA2 Reanalysis (TOTEXTTAU)', orientation='horizontal', tickstep=1)
+
+plt.show()
+
+# Cell 7.
+# Difference between MERRA2 reanalysis and satellite
+
+fig, axs = plt.subplots(5, 3,
+                        subplot_kw={'projection': proj_map},
+                        gridspec_kw={'hspace': 0.1, 'wspace': 0.01},
+                        figsize=[10, 8],
+                        constrained_layout=False)
+
+# Convert axs to a 1D array
+axs = axs.transpose().flat
+
+# An empty list that will store contourf or pseudocolor objects for each subplot.
+cf_list = []
+
+# A list of subplot titles.
+title = ['June 14', 'June 15', 'June 16', 'June 17', 'June 18', 'June 19', 'June 20', 'June 21', 'June 22', 'June 23', 'June 24', 'June 25', 'June 26', 'June 27', 'June 28']
+
+# A color map (colormap) for visualizing data.
+cmap_difference = plt.get_cmap('coolwarm')
+difference_levs = np.arange(-1, 1.1, 0.1)
 difference_norm = BoundaryNorm(difference_levs, ncolors=cmap_difference.N, extend='both')
 
-# Get the time dimension from the dataset
-time_values = ds6['TOTEXTTAU']['time'].values
-
-# Calculate the number of rows and columns
-num_rows = len(time_values)
-num_columns = 3
-
-# Create a figure with subplots
-fig, axs = plt.subplots(num_rows, num_columns, figsize=(15, 5 * num_rows), subplot_kw={'projection': proj_map})
-
-# Iterate over each day
-for i, date_str in enumerate(pd.to_datetime(time_values)):
+step = 1  # alters the resolution
+for idx, ax in enumerate(axs):
     # Use .sel() with 'method' set to 'nearest' to select the nearest available date
-    ds6_data = ds6['TOTEXTTAU'].sel(time=date_str, method='nearest')
-    ds5_data = ds5['aod'].sel(time=date_str, method='nearest')
+    ds6_data = ds6['TOTEXTTAU'].sel(time=pd.to_datetime(time_values[idx]), method='nearest')
+    ds5_data = ds5['aod'].sel(time=pd.to_datetime(time_values[idx]), method='nearest')
     difference = ds6_data - ds5_data
+    # Configures the map settings for the current subplot.
+    map_conf(ax)
+    ax.text(-107, 3, title[idx], fontsize=8)  # Reformats where the data shows up on the figure.
+    cf_list += [ax.pcolormesh(difference.lon[::step], difference.lat[::step], difference[::step, ::step],
+                              shading='auto',
+                              norm=difference_norm,
+                              cmap=cmap_difference,
+                              transform=proj_data,
+                              )]
 
-    # Configure map settings for the difference subplot (Left)
-    map_conf(axs[i, 0])
-    cax = axs[i, 0].pcolormesh(difference.lon, difference.lat, difference, cmap=cmap_difference, transform=proj_data, norm=difference_norm)
-    axs[i, 0].set_title(f'Difference on {date_str.strftime("%Y-%m-%d")}', fontsize=10)
+    # Subplots with idx less than or equal to 2 have their x-axis tick labels removed.
+    if idx <= 2:
+        ax.set_xticklabels([])
 
-    # Configure map settings for ds5 (Middle)
-    map_conf(axs[i, 1])
-    cax_ds5 = axs[i, 1].pcolormesh(ds5_data.lon, ds5_data.lat, ds5_data, shading='auto', norm=norm, cmap=cmap, transform=proj_data)
-    axs[i, 1].set_title(f'MEERA2 Satellite\n {date_str.strftime("%Y-%m-%d")}', fontsize=10)
+    # Subplots with idx equal to 2 or 4 have their y-axis tick labels removed.
+    if idx == 2 or idx == 4:
+        ax.set_yticklabels([])
 
-    # Configure map settings for ds6 (Right)
-    map_conf(axs[i, 2])
-    cax_ds6 = axs[i, 2].pcolormesh(ds6_data.lon, ds6_data.lat, ds6_data, shading='auto', norm=norm, cmap=cmap, transform=proj_data)
-    axs[i, 2].set_title(f'MEERA2 Reanalysis\n {date_str.strftime("%Y-%m-%d")}', fontsize=10)
+# A color bar axis (cb_ax) is added to the figure.
+cb_ax = fig.add_axes([0.21, 0.05, 0.6, 0.02])
 
-    # Add a colorbar for the difference subplot
-    cb = plt.colorbar(cax, orientation='horizontal', pad=0.1, ax=axs[i, 0], extend='both')
-    cb.set_label("Difference")
+# Create and customize a color bar based on the pseudocolor plots in cf_list[4].
+cb = plt.colorbar(cf_list[4], cax=cb_ax, orientation='horizontal', ticks=difference_ticks, extend='both')
+cb.set_label("Difference between MEERA2 Reanalysis and MEERA2 Satellite")
+cb.ax.tick_params(labelsize=6)  # Adjusts the font size 
 
-    # Add a colorbar for the MEERA2 Satellite (ds5) subplot
-    cb2 = plt.colorbar(cax_ds5, orientation='horizontal', pad=0.1, ax=axs[i, 1])
-    cb2.set_label("AOD")
-
-    # Add a colorbar for the MEERA2 Reanalysis (ds6) subplot
-    cb3 = plt.colorbar(cax_ds6, orientation='horizontal', pad=0.1, ax=axs[i, 2])
-    cb3.set_label("TOTEXTTAU")
-
-# Adjust layout
-plt.tight_layout()
-
-# Show the plot
 plt.show()
 
 
-# Cell 6. 
-# Plotting the difference between EAC4 Reanalysis and EAC4 Satellite
+# Cell 8.
+# EAC4 satellite data
+
+data = ds7['aod']
 
 proj_map = ccrs.PlateCarree()
 proj_data = ccrs.PlateCarree()
 
-# Configure cmap for ds5 and ds6 datasets
-cmap = plt.get_cmap('YlOrBr')
-cmap.set_under('w')
 
-# Configure cmap for difference
-cmap_difference=plt.get_cmap('coolwarm')
+#The following block creates a figure (fig) containing a 3x2 grid of subplots (axs).
+fig, axs = plt.subplots(5,3,
+                        #Specifies that each subplot should use the proj_map projection defined earler.
+                        subplot_kw={'projection': proj_map},
+                        #sets the spacing between the subplots with a small horizontal space (wsapce) and vertical space (hspace). More parameters like figsize and constrained_layout are set to customize size and layout.
+                        gridspec_kw={'hspace': 0.1, 'wspace': 0.01},#When is adjusted wspace it did not make the subplots come closer together widthwise???
+                        **{'figsize': [10, 8], 'constrained_layout': False},
+                        )
+#Prints the axs varialbe which contains references to the individual subplots creaetd in the previous step.
+print(axs)
 
-# An array of levels for data contouring.
+#These lines convert the axs object, which is initially a 2D array of subplots, into a 1D array using axs.flat.
+axs = axs.transpose().flat
+
+#An empty list that will store contourf or pseudocolor objects for each subplot.
+cf_list = []
+
+#A list of subplot titles.
+title = ['June 14','June 15','June 16','June 17','June 18','June 19','June 20','June 21','June 22','June 23','June 24','June 25','June 26','June 27','June 28', ]
+
+#A color map (colormap) for visualizing data.
+cmap=plot.get_cmap('MPL_YlOrBr')
+cmap.set_under('w') # changes the background of anything that is not AOD to white (10.30.23)
+#cmap
+
+#An array of levels for data contouring.
 levs = [0.4, 0.7, 1.0, 1.5, 2, 2.5, 3]
-difference_levs = [-3.0, -2.0, -1.5, -1.0, -0.5, 0, 0.5, 1.0, 1.5, 2.0, 3.0]
 
-# A normalization object that maps data values to colors based on the defined levels.
+#A normalization object that maps data values to colors based on the defined levels.
 norm = BoundaryNorm(levs, ncolors=cmap.N, extend='both')
-difference_norm = BoundaryNorm(difference_levs, ncolors=cmap_difference.N, extend='both')
 
-# Get the time dimension from the dataset
-time_values = ds8['aod550']['time'].values
+step = 1 #alters the resolution...the lower the number, the better the resolution...this variable appears in cf_list variable down below.
+for idx, ax in enumerate(axs):
+    #Configures the maps settings for the current subplot.
+    map_conf(ax)
+    ax.text(-107, 3, title[idx], fontsize=8) #reformats where the data shows up on the figure.
+    cf_list += [ax.pcolormesh(data.lon[::step], data.lat[::step], data[idx, ::step, ::step],
+                              shading='auto',
+                              norm=norm,
+                              cmap=cmap,
+                              transform=proj_data,
+                            )]
 
-# Calculate the number of rows and columns
-num_rows = len(time_values)
-num_columns = 3
+    #Subplots with idx less than or equal to 2 have their x-axis tick labels removed.
+    if idx <= 2:
+            ax.set_xticklabels([])
 
-# Create a figure with subplots
-fig, axs = plt.subplots(num_rows, num_columns, figsize=(15, 5 * num_rows), subplot_kw={'projection': proj_map})
+    #Subplots with idx equal to 2 or 4 have their y-axis tick labels removed.
+    if idx == 2 or idx==4:
+            ax.set_yticklabels([])
+
+    
+
+#A color bar axis (cb_ax) is added to the figure. This axis is positioned at specific coordinates within the figure and has a defined width and height. The first two values represent x and y of the
+#entire color bar, while the next x and y represent the actual gradient bar.
+cb_ax = fig.add_axes([0.22, 0.05, 0.6, 0.02])
+
+#The color_bar function is called to create and customize a color bar based on the pseudocolor plots in cf_list[4]. The color bar is configured with a label and horizontal orientation, and tick steps are specified.
+color_bar(fig, cf_list[4], cb_ax, label='EAC4 Satellite (aod)', orientation='horizontal', tickstep=1)
+
+plt.show()
+
+# Cell 9.
+# EAC4 reanalysis data
 
 # Rename latitude and longitude to avoid dimension errors.
 ds8 = ds8.rename({'longitude': 'lon', 'latitude': 'lat'})
-
-# Iterate over each day
-for i, date_str in enumerate(pd.to_datetime(time_values)):
-    # Use .sel() with 'method' set to 'nearest' to select the nearest available date
-    ds8_data = ds8['aod550'].sel(time=date_str, method='nearest')
-    ds7_data = ds7['aod'].sel(time=date_str, method='nearest')
-    difference = ds8_data - ds7_data
-
-    # Configure map settings for the difference subplot (Left)
-    map_conf(axs[i, 0])
-    cax = axs[i, 0].pcolormesh(difference.lon, difference.lat, difference, cmap=cmap_difference, transform=proj_data, norm=difference_norm)
-    axs[i, 0].set_title(f'Difference on {date_str.strftime("%Y-%m-%d")}', fontsize=10)
-
-    # Configure map settings for ds5 (Middle)
-    map_conf(axs[i, 1])
-    cax_ds7 = axs[i, 1].pcolormesh(ds7_data.lon, ds7_data.lat, ds7_data, shading='auto', norm=norm, cmap=cmap, transform=proj_data)
-    axs[i, 1].set_title(f'EAC4 Satellite\n {date_str.strftime("%Y-%m-%d")}', fontsize=10)
-
-    # Configure map settings for ds6 (Right)
-    map_conf(axs[i, 2])
-    cax_ds8 = axs[i, 2].pcolormesh(ds8_data.lon, ds8_data.lat, ds8_data, shading='auto', norm=norm, cmap=cmap, transform=proj_data)
-    axs[i, 2].set_title(f'EAC4 Reanalysis\n {date_str.strftime("%Y-%m-%d")}', fontsize=10)
-
-    # Add a colorbar for the difference subplot
-    cb = plt.colorbar(cax, orientation='horizontal', pad=0.1, ax=axs[i, 0], extend='both')
-    cb.set_label("Difference")
-
-    # Add a colorbar for the MEERA2 Satellite (ds5) subplot
-    cb2 = plt.colorbar(cax_ds7, orientation='horizontal', pad=0.1, ax=axs[i, 1])
-    cb2.set_label("AOD")
-
-    # Add a colorbar for the MEERA2 Reanalysis (ds6) subplot
-    cb3 = plt.colorbar(cax_ds8, orientation='horizontal', pad=0.1, ax=axs[i, 2])
-    cb3.set_label("AOD550")
-
-# Adjust layout
-plt.tight_layout()
-
-# Show the plot
-plt.show()
-
-# Cell 7. 
-# Plotting the difference between NAAPS Reanalysis and NAAPS Satellite
+data = ds8['aod550']
 
 proj_map = ccrs.PlateCarree()
 proj_data = ccrs.PlateCarree()
 
-# Configure cmap for ds5 and ds6 datasets
-cmap = plt.get_cmap('YlOrBr')
-cmap.set_under('w')
 
-# Configure cmap for difference
-cmap_difference=plt.get_cmap('coolwarm')
+#The following block creates a figure (fig) containing a 3x2 grid of subplots (axs).
+fig, axs = plt.subplots(5,3,
+                        #Specifies that each subplot should use the proj_map projection defined earler.
+                        subplot_kw={'projection': proj_map},
+                        #sets the spacing between the subplots with a small horizontal space (wsapce) and vertical space (hspace). More parameters like figsize and constrained_layout are set to customize size and layout.
+                        gridspec_kw={'hspace': 0.1, 'wspace': 0.01},#When is adjusted wspace it did not make the subplots come closer together widthwise???
+                        **{'figsize': [10, 8], 'constrained_layout': False},
+                        )
+#Prints the axs varialbe which contains references to the individual subplots creaetd in the previous step.
+print(axs)
 
-# An array of levels for data contouring.
+#These lines convert the axs object, which is initially a 2D array of subplots, into a 1D array using axs.flat.
+axs = axs.transpose().flat
+
+#An empty list that will store contourf or pseudocolor objects for each subplot.
+cf_list = []
+
+#A list of subplot titles.
+title = ['June 14','June 15','June 16','June 17','June 18','June 19','June 20','June 21','June 22','June 23','June 24','June 25','June 26','June 27','June 28', ]
+
+#A color map (colormap) for visualizing data.
+cmap=plot.get_cmap('MPL_YlOrBr')
+cmap.set_under('w') # changes the background of anything that is not AOD to white (10.30.23)
+#cmap
+
+#An array of levels for data contouring.
 levs = [0.4, 0.7, 1.0, 1.5, 2, 2.5, 3]
-difference_levs = [-3.0, -2.0, -1.5, -1.0, -0.5, 0, 0.5, 1.0, 1.5, 2.0, 3.0]
 
-# A normalization object that maps data values to colors based on the defined levels.
+#A normalization object that maps data values to colors based on the defined levels.
 norm = BoundaryNorm(levs, ncolors=cmap.N, extend='both')
+
+step = 1 #alters the resolution...the lower the number, the better the resolution...this variable appears in cf_list variable down below.
+for idx, ax in enumerate(axs):
+    #Configures the maps settings for the current subplot.
+    map_conf(ax)
+    ax.text(-107, 3, title[idx], fontsize=8) #reformats where the data shows up on the figure.
+    cf_list += [ax.pcolormesh(data.lon[::step], data.lat[::step], data[idx, ::step, ::step],
+                              shading='auto',
+                              norm=norm,
+                              cmap=cmap,
+                              transform=proj_data,
+                            )]
+
+    #Subplots with idx less than or equal to 2 have their x-axis tick labels removed.
+    if idx <= 2:
+            ax.set_xticklabels([])
+
+    #Subplots with idx equal to 2 or 4 have their y-axis tick labels removed.
+    if idx == 2 or idx==4:
+            ax.set_yticklabels([])
+
+    
+
+#A color bar axis (cb_ax) is added to the figure. This axis is positioned at specific coordinates within the figure and has a defined width and height. The first two values represent x and y of the
+#entire color bar, while the next x and y represent the actual gradient bar.
+cb_ax = fig.add_axes([0.22, 0.05, 0.6, 0.02])
+
+#The color_bar function is called to create and customize a color bar based on the pseudocolor plots in cf_list[4]. The color bar is configured with a label and horizontal orientation, and tick steps are specified.
+color_bar(fig, cf_list[4], cb_ax, label='EAC4 Reanalysis (aod550)', orientation='horizontal', tickstep=1)
+
+plt.show()
+
+
+# Cell 10.
+# Difference between EAC4 reanalysis and satellite
+
+fig, axs = plt.subplots(5, 3,
+                        subplot_kw={'projection': proj_map},
+                        gridspec_kw={'hspace': 0.1, 'wspace': 0.01},
+                        figsize=[10, 8],
+                        constrained_layout=False)
+
+# Convert axs to a 1D array
+axs = axs.transpose().flat
+
+# An empty list that will store contourf or pseudocolor objects for each subplot.
+cf_list = []
+
+# A list of subplot titles.
+title = ['June 14', 'June 15', 'June 16', 'June 17', 'June 18', 'June 19', 'June 20', 'June 21', 'June 22', 'June 23', 'June 24', 'June 25', 'June 26', 'June 27', 'June 28']
+
+# A color map (colormap) for visualizing data.
+cmap_difference = plt.get_cmap('coolwarm')
+difference_levs = np.arange(-1, 1.1, 0.1)
 difference_norm = BoundaryNorm(difference_levs, ncolors=cmap_difference.N, extend='both')
 
-# Get the time dimension from the dataset
-time_values = ds10['total_aod']['time'].values
-
-# Calculate the number of rows and columns
-num_rows = len(time_values)
-num_columns = 3
-
-# Create a figure with subplots
-fig, axs = plt.subplots(num_rows, num_columns, figsize=(15, 5 * num_rows), subplot_kw={'projection': proj_map})
-
-# Iterate over each day
-for i, date_str in enumerate(pd.to_datetime(time_values)):
+step = 1  # alters the resolution
+for idx, ax in enumerate(axs):
     # Use .sel() with 'method' set to 'nearest' to select the nearest available date
-    ds10_data = ds10['total_aod'].sel(time=date_str, method='nearest')
-    ds9_data = ds9['aod'].sel(time=date_str, method='nearest')
+    ds8_data = ds8['aod550'].sel(time=pd.to_datetime(time_values[idx]), method='nearest')
+    ds7_data = ds7['aod'].sel(time=pd.to_datetime(time_values[idx]), method='nearest')
+    difference = ds8_data - ds7_data
+    # Configures the map settings for the current subplot.
+    map_conf(ax)
+    ax.text(-107, 3, title[idx], fontsize=8)  # Reformats where the data shows up on the figure.
+    cf_list += [ax.pcolormesh(difference.lon[::step], difference.lat[::step], difference[::step, ::step],
+                              shading='auto',
+                              norm=difference_norm,
+                              cmap=cmap_difference,
+                              transform=proj_data,
+                              )]
+
+    # Subplots with idx less than or equal to 2 have their x-axis tick labels removed.
+    if idx <= 2:
+        ax.set_xticklabels([])
+
+    # Subplots with idx equal to 2 or 4 have their y-axis tick labels removed.
+    if idx == 2 or idx == 4:
+        ax.set_yticklabels([])
+
+# A color bar axis (cb_ax) is added to the figure.
+cb_ax = fig.add_axes([0.21, 0.05, 0.6, 0.02])
+
+# Create and customize a color bar based on the pseudocolor plots in cf_list[4].
+cb = plt.colorbar(cf_list[4], cax=cb_ax, orientation='horizontal', ticks=difference_ticks, extend='both')
+cb.set_label("Difference between EAC4 Reanalysis and EAC4 Satellite")
+cb.ax.tick_params(labelsize=6)  # Adjusts the font size 
+
+plt.show()
+
+# Cell 11.
+# NAAPS satellite data
+
+data = ds9['aod']
+
+proj_map = ccrs.PlateCarree()
+proj_data = ccrs.PlateCarree()
+
+
+#The following block creates a figure (fig) containing a 3x2 grid of subplots (axs).
+fig, axs = plt.subplots(5,3,
+                        #Specifies that each subplot should use the proj_map projection defined earler.
+                        subplot_kw={'projection': proj_map},
+                        #sets the spacing between the subplots with a small horizontal space (wsapce) and vertical space (hspace). More parameters like figsize and constrained_layout are set to customize size and layout.
+                        gridspec_kw={'hspace': 0.1, 'wspace': 0.01},#When is adjusted wspace it did not make the subplots come closer together widthwise???
+                        **{'figsize': [10, 8], 'constrained_layout': False},
+                        )
+#Prints the axs varialbe which contains references to the individual subplots creaetd in the previous step.
+print(axs)
+
+#These lines convert the axs object, which is initially a 2D array of subplots, into a 1D array using axs.flat.
+axs = axs.transpose().flat
+
+#An empty list that will store contourf or pseudocolor objects for each subplot.
+cf_list = []
+
+#A list of subplot titles.
+title = ['June 14','June 15','June 16','June 17','June 18','June 19','June 20','June 21','June 22','June 23','June 24','June 25','June 26','June 27','June 28', ]
+
+#A color map (colormap) for visualizing data.
+cmap=plot.get_cmap('MPL_YlOrBr')
+cmap.set_under('w') # changes the background of anything that is not AOD to white (10.30.23)
+#cmap
+
+#An array of levels for data contouring.
+levs = [0.4, 0.7, 1.0, 1.5, 2, 2.5, 3]
+
+#A normalization object that maps data values to colors based on the defined levels.
+norm = BoundaryNorm(levs, ncolors=cmap.N, extend='both')
+
+step = 1 #alters the resolution...the lower the number, the better the resolution...this variable appears in cf_list variable down below.
+for idx, ax in enumerate(axs):
+    #Configures the maps settings for the current subplot.
+    map_conf(ax)
+    ax.text(-107, 3, title[idx], fontsize=8) #reformats where the data shows up on the figure.
+    cf_list += [ax.pcolormesh(data.lon[::step], data.lat[::step], data[idx, ::step, ::step],
+                              shading='auto',
+                              norm=norm,
+                              cmap=cmap,
+                              transform=proj_data,
+                            )]
+
+    #Subplots with idx less than or equal to 2 have their x-axis tick labels removed.
+    if idx <= 2:
+            ax.set_xticklabels([])
+
+    #Subplots with idx equal to 2 or 4 have their y-axis tick labels removed.
+    if idx == 2 or idx==4:
+            ax.set_yticklabels([])
+
+    
+
+#A color bar axis (cb_ax) is added to the figure. This axis is positioned at specific coordinates within the figure and has a defined width and height. The first two values represent x and y of the
+#entire color bar, while the next x and y represent the actual gradient bar.
+cb_ax = fig.add_axes([0.22, 0.05, 0.6, 0.02])
+
+#The color_bar function is called to create and customize a color bar based on the pseudocolor plots in cf_list[4]. The color bar is configured with a label and horizontal orientation, and tick steps are specified.
+color_bar(fig, cf_list[4], cb_ax, label='NAAPS Satellite (aod)', orientation='horizontal', tickstep=1)
+
+plt.show()
+
+# Cell 12.
+# NAAPS reanalysis data
+
+# Rename latitude and longitude to avoid dimension errors.
+data = ds10['total_aod']
+
+proj_map = ccrs.PlateCarree()
+proj_data = ccrs.PlateCarree()
+
+
+#The following block creates a figure (fig) containing a 3x2 grid of subplots (axs).
+fig, axs = plt.subplots(5,3,
+                        #Specifies that each subplot should use the proj_map projection defined earler.
+                        subplot_kw={'projection': proj_map},
+                        #sets the spacing between the subplots with a small horizontal space (wsapce) and vertical space (hspace). More parameters like figsize and constrained_layout are set to customize size and layout.
+                        gridspec_kw={'hspace': 0.1, 'wspace': 0.01},#When is adjusted wspace it did not make the subplots come closer together widthwise???
+                        **{'figsize': [10, 8], 'constrained_layout': False},
+                        )
+#Prints the axs varialbe which contains references to the individual subplots creaetd in the previous step.
+print(axs)
+
+#These lines convert the axs object, which is initially a 2D array of subplots, into a 1D array using axs.flat.
+axs = axs.transpose().flat
+
+#An empty list that will store contourf or pseudocolor objects for each subplot.
+cf_list = []
+
+#A list of subplot titles.
+title = ['June 14','June 15','June 16','June 17','June 18','June 19','June 20','June 21','June 22','June 23','June 24','June 25','June 26','June 27','June 28', ]
+
+#A color map (colormap) for visualizing data.
+cmap=plot.get_cmap('MPL_YlOrBr')
+cmap.set_under('w') # changes the background of anything that is not AOD to white (10.30.23)
+#cmap
+
+#An array of levels for data contouring.
+levs = [0.4, 0.7, 1.0, 1.5, 2, 2.5, 3]
+
+#A normalization object that maps data values to colors based on the defined levels.
+norm = BoundaryNorm(levs, ncolors=cmap.N, extend='both')
+
+step = 1 #alters the resolution...the lower the number, the better the resolution...this variable appears in cf_list variable down below.
+for idx, ax in enumerate(axs):
+    #Configures the maps settings for the current subplot.
+    map_conf(ax)
+    ax.text(-107, 3, title[idx], fontsize=8) #reformats where the data shows up on the figure.
+    cf_list += [ax.pcolormesh(data.lon[::step], data.lat[::step], data[idx, ::step, ::step],
+                              shading='auto',
+                              norm=norm,
+                              cmap=cmap,
+                              transform=proj_data,
+                            )]
+
+    #Subplots with idx less than or equal to 2 have their x-axis tick labels removed.
+    if idx <= 2:
+            ax.set_xticklabels([])
+
+    #Subplots with idx equal to 2 or 4 have their y-axis tick labels removed.
+    if idx == 2 or idx==4:
+            ax.set_yticklabels([])
+
+    
+
+#A color bar axis (cb_ax) is added to the figure. This axis is positioned at specific coordinates within the figure and has a defined width and height. The first two values represent x and y of the
+#entire color bar, while the next x and y represent the actual gradient bar.
+cb_ax = fig.add_axes([0.22, 0.05, 0.6, 0.02])
+
+#The color_bar function is called to create and customize a color bar based on the pseudocolor plots in cf_list[4]. The color bar is configured with a label and horizontal orientation, and tick steps are specified.
+color_bar(fig, cf_list[4], cb_ax, label='NAAPS Reanalysis (total_aod)', orientation='horizontal', tickstep=1)
+
+plt.show()
+
+# Cell 13.
+# Difference between NAAPS reanalysis and satellite
+
+fig, axs = plt.subplots(5, 3,
+                        subplot_kw={'projection': proj_map},
+                        gridspec_kw={'hspace': 0.1, 'wspace': 0.01},
+                        figsize=[10, 8],
+                        constrained_layout=False)
+
+# Convert axs to a 1D array
+axs = axs.transpose().flat
+
+# An empty list that will store contourf or pseudocolor objects for each subplot.
+cf_list = []
+
+# A list of subplot titles.
+title = ['June 14', 'June 15', 'June 16', 'June 17', 'June 18', 'June 19', 'June 20', 'June 21', 'June 22', 'June 23', 'June 24', 'June 25', 'June 26', 'June 27', 'June 28']
+
+# A color map (colormap) for visualizing data.
+cmap_difference = plt.get_cmap('coolwarm')
+difference_levs = np.arange(-1, 1.1, 0.1)
+difference_norm = BoundaryNorm(difference_levs, ncolors=cmap_difference.N, extend='both')
+
+step = 1  # alters the resolution
+for idx, ax in enumerate(axs):
+    # Use .sel() with 'method' set to 'nearest' to select the nearest available date
+    ds10_data = ds10['total_aod'].sel(time=pd.to_datetime(time_values[idx]), method='nearest')
+    ds9_data = ds9['aod'].sel(time=pd.to_datetime(time_values[idx]), method='nearest')
     difference = ds10_data - ds9_data
+    # Configures the map settings for the current subplot.
+    map_conf(ax)
+    ax.text(-107, 3, title[idx], fontsize=8)  # Reformats where the data shows up on the figure.
+    cf_list += [ax.pcolormesh(difference.lon[::step], difference.lat[::step], difference[::step, ::step],
+                              shading='auto',
+                              norm=difference_norm,
+                              cmap=cmap_difference,
+                              transform=proj_data,
+                              )]
 
-    # Configure map settings for the difference subplot (Left)
-    map_conf(axs[i, 0])
-    cax = axs[i, 0].pcolormesh(difference.lon, difference.lat, difference, cmap=cmap_difference, transform=proj_data, norm=difference_norm)
-    axs[i, 0].set_title(f'Difference on {date_str.strftime("%Y-%m-%d")}', fontsize=10)
+    # Subplots with idx less than or equal to 2 have their x-axis tick labels removed.
+    if idx <= 2:
+        ax.set_xticklabels([])
 
-    # Configure map settings for ds5 (Middle)
-    map_conf(axs[i, 1])
-    cax_ds9 = axs[i, 1].pcolormesh(ds9_data.lon, ds9_data.lat, ds9_data, shading='auto', norm=norm, cmap=cmap, transform=proj_data)
-    axs[i, 1].set_title(f'NAAPS Satellite\n {date_str.strftime("%Y-%m-%d")}', fontsize=10)
+    # Subplots with idx equal to 2 or 4 have their y-axis tick labels removed.
+    if idx == 2 or idx == 4:
+        ax.set_yticklabels([])
 
-    # Configure map settings for ds6 (Right)
-    map_conf(axs[i, 2])
-    cax_ds10 = axs[i, 2].pcolormesh(ds10_data.lon, ds10_data.lat, ds10_data, shading='auto', norm=norm, cmap=cmap, transform=proj_data)
-    axs[i, 2].set_title(f'NAAPS Reanalysis\n {date_str.strftime("%Y-%m-%d")}', fontsize=10)
+# A color bar axis (cb_ax) is added to the figure.
+cb_ax = fig.add_axes([0.21, 0.05, 0.6, 0.02])
 
-    # Add a colorbar for the difference subplot
-    cb = plt.colorbar(cax, orientation='horizontal', pad=0.1, ax=axs[i, 0], extend='both')
-    cb.set_label("Difference")
+# Create and customize a color bar based on the pseudocolor plots in cf_list[4].
+cb = plt.colorbar(cf_list[4], cax=cb_ax, orientation='horizontal', ticks=difference_ticks, extend='both')
+cb.set_label("Difference between NAAPS Reanalysis and NAAPS Satellite")
+cb.ax.tick_params(labelsize=6)  # Adjusts the font size 
 
-    # Add a colorbar for the MEERA2 Satellite (ds5) subplot
-    cb2 = plt.colorbar(cax_ds9, orientation='horizontal', pad=0.1, ax=axs[i, 1])
-    cb2.set_label("AOD")
-
-    # Add a colorbar for the MEERA2 Reanalysis (ds6) subplot
-    cb3 = plt.colorbar(cax_ds10, orientation='horizontal', pad=0.1, ax=axs[i, 2])
-    cb3.set_label("TOTAL_AOD")
-
-# Adjust layout
-plt.tight_layout()
-
-# Show the plot
 plt.show()
