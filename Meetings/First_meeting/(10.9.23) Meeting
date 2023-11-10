@@ -1,0 +1,375 @@
+Last login: Mon Oct  9 15:00:59 on ttys000
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+Kadens-MacBook-Pro-689:~ kadenhuber$ echo $SHELL
+/bin/bash
+Kadens-MacBook-Pro-689:~ kadenhuber$ dustjp3
+*******************************************************************************
+                                NOTICE TO USERS
+
+Access to electronic resources at the University of Kansas is restricted to
+employees, students, or individuals authorized by the University or its
+affiliates. Use of this system is subject to all policies and procedures set
+forth by the University located at www.policy.ku.edu. Unauthorized use is 
+prohibited and may result in administrative or legal action. The University 
+may monitor the use of this system for purposes related to security management,
+system operations, and intellectual property compliance.
+
+*******************************************************************************
+(k377h395@10.101.225.38) Password: 
+(k377h395@10.101.225.38) Password: 
+Last failed login: Mon Oct  9 15:04:11 CDT 2023 from 10.106.192.172 on ssh:notty
+There was 1 failed login attempt since the last successful login.
+Last login: Fri Oct  6 09:06:07 2023 from 10.125.184.90
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for k377h395: 
+                   ..                    k377h395@gas-bingpu.gas.ku.edu
+                 .PLTJ.                  OS: CentOS 
+                <><><><>                 Kernel: x86_64 Linux 3.10.0-1160.99.1.el7.x86_64
+       KKSSV' 4KKK LJ KKKL.'VSSKK        Uptime: 2d 22h 55m
+       KKV' 4KKKKK LJ KKKKAL 'VKK        Packages: 1065
+       V' ' 'VKKKK LJ KKKKV' ' 'V        Shell: bash 4.2.46
+       .4MA.' 'VKK LJ KKV' '.4Mb.        Resolution: No X Server
+     . KKKKKA.' 'V LJ V' '.4KKKKK .      WM: Not Found
+   .4D KKKKKKKA.'' LJ ''.4KKKKKKK FA.    GTK Theme: Adwaita [GTK3]
+  <QDD ++++++++++++  ++++++++++++ GFD>   Disk: 86T / 162T (53%)
+   'VD KKKKKKKK'.. LJ ..'KKKKKKKK FV     CPU: Intel Xeon Gold 6128 @ 24x 3.7GHz [39.0°C]
+     ' VKKKKK'. .4 LJ K. .'KKKKKV '      GPU: Matrox Electronics Systems Ltd. Integrated Matrox G200eW3 Graphics Controller (rev 04)
+        'VK'. .4KK LJ KKA. .'KV'         RAM: 19378MiB / 63731MiB
+       A. . .4KKKK LJ KKKKA. . .4       
+       KKA. 'KKKKK LJ KKKKK' .4KK       
+       KKSSA. VKKK LJ KKKV .4SSKK       
+                <><><><>                
+                 'MKKM'                 
+                   ''                   
+-bash: jupyter: command not found
+(base) [k377h395@gas-bingpu ~]$ dustjp3
+-bash: dustjp3: command not found
+(base) [k377h395@gas-bingpu ~]$ jp3
+-bash: jupyter: command not found
+(base) [k377h395@gas-bingpu ~]$ earth
+(earth) [k377h395@gas-bingpu ~]$ jp3
+[I 2023-10-09 15:04:54.577 ServerApp] Package notebook took 0.0000s to import
+[I 2023-10-09 15:04:54.596 ServerApp] Package jupyter_lsp took 0.0191s to import
+[W 2023-10-09 15:04:54.596 ServerApp] A `_jupyter_server_extension_points` function was not found in jupyter_lsp. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+[I 2023-10-09 15:04:54.605 ServerApp] Package jupyter_server_terminals took 0.0084s to import
+[I 2023-10-09 15:04:54.606 ServerApp] Package jupyterlab took 0.0000s to import
+[I 2023-10-09 15:04:54.650 ServerApp] Package notebook_shim took 0.0000s to import
+[W 2023-10-09 15:04:54.650 ServerApp] A `_jupyter_server_extension_points` function was not found in notebook_shim. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+[I 2023-10-09 15:04:54.651 ServerApp] jupyter_lsp | extension was successfully linked.
+[I 2023-10-09 15:04:54.655 ServerApp] jupyter_server_terminals | extension was successfully linked.
+[W 2023-10-09 15:04:54.657 LabApp] 'allow_origin' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2023-10-09 15:04:54.657 LabApp] 'port_retries' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[I 2023-10-09 15:04:54.660 ServerApp] jupyterlab | extension was successfully linked.
+[I 2023-10-09 15:04:54.664 ServerApp] notebook | extension was successfully linked.
+[I 2023-10-09 15:04:55.086 ServerApp] notebook_shim | extension was successfully linked.
+[I 2023-10-09 15:04:55.119 ServerApp] notebook_shim | extension was successfully loaded.
+[I 2023-10-09 15:04:55.121 ServerApp] jupyter_lsp | extension was successfully loaded.
+[I 2023-10-09 15:04:55.122 ServerApp] jupyter_server_terminals | extension was successfully loaded.
+[I 2023-10-09 15:04:55.125 LabApp] JupyterLab extension loaded from /home/k377h395/mambaforge/envs/earth/lib/python3.11/site-packages/jupyterlab
+[I 2023-10-09 15:04:55.125 LabApp] JupyterLab application directory is /home/k377h395/mambaforge/envs/earth/share/jupyter/lab
+[I 2023-10-09 15:04:55.126 LabApp] Extension Manager is 'pypi'.
+[I 2023-10-09 15:04:55.130 ServerApp] jupyterlab | extension was successfully loaded.
+[I 2023-10-09 15:04:55.135 ServerApp] notebook | extension was successfully loaded.
+[I 2023-10-09 15:04:55.137 ServerApp] Serving notebooks from local directory: /home/k377h395
+[I 2023-10-09 15:04:55.137 ServerApp] Jupyter Server 2.7.3 is running at:
+[I 2023-10-09 15:04:55.137 ServerApp] http://localhost:3000/tree?token=90b46e567f60d1ee8de197a7538ba0b99cb46f809c2226c5
+[I 2023-10-09 15:04:55.137 ServerApp]     http://127.0.0.1:3000/tree?token=90b46e567f60d1ee8de197a7538ba0b99cb46f809c2226c5
+[I 2023-10-09 15:04:55.137 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 2023-10-09 15:04:55.144 ServerApp] 
+    
+    To access the server, open this file in a browser:
+        file:///home/k377h395/.local/share/jupyter/runtime/jpserver-24663-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:3000/tree?token=90b46e567f60d1ee8de197a7538ba0b99cb46f809c2226c5
+        http://127.0.0.1:3000/tree?token=90b46e567f60d1ee8de197a7538ba0b99cb46f809c2226c5
+[I 2023-10-09 15:04:55.567 ServerApp] Skipped non-installed server(s): bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
+[W 2023-10-09 15:05:06.943 ServerApp] 404 OPTIONS /api/colab/build-info?token=[secret] (9ff1a8a817a9462b83242095c628d5e5@::1) 27.38ms referer=https://colab.research.google.com/
+[W 2023-10-09 15:05:06.953 ServerApp] 404 GET /api/colab/build-info?token=[secret] (3cc765b7b795460a9d6c3943440c1dc4@::1) 2.22ms referer=https://colab.research.google.com/
+0.00s - Debugger warning: It seems that frozen modules are being used, which may
+0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+0.00s - to python to disable frozen modules.
+0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+[I 2023-10-09 15:05:07.174 ServerApp] Kernel started: 8fbfdb82-95ce-408e-9f74-5f89ff2852cb
+0.00s - Debugger warning: It seems that frozen modules are being used, which may
+0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+0.00s - to python to disable frozen modules.
+0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+[I 2023-10-09 15:05:07.685 ServerApp] Connecting to kernel 8fbfdb82-95ce-408e-9f74-5f89ff2852cb.
+^C[I 2023-10-09 15:21:52.641 ServerApp] interrupted
+[I 2023-10-09 15:21:52.643 ServerApp] Serving notebooks from local directory: /home/k377h395
+    1 active kernel
+    Jupyter Server 2.7.3 is running at:
+    http://localhost:3000/tree?token=90b46e567f60d1ee8de197a7538ba0b99cb46f809c2226c5
+        http://127.0.0.1:3000/tree?token=90b46e567f60d1ee8de197a7538ba0b99cb46f809c2226c5
+Shutdown this Jupyter server (y/[n])? y
+[C 2023-10-09 15:21:54.453 ServerApp] Shutdown confirmed
+[I 2023-10-09 15:21:54.456 ServerApp] Shutting down 5 extensions
+[I 2023-10-09 15:21:54.457 ServerApp] Shutting down 1 kernel
+[I 2023-10-09 15:21:54.458 ServerApp] Kernel shutdown: 8fbfdb82-95ce-408e-9f74-5f89ff2852cb
+[I 2023-10-09 15:21:54.530 ServerApp] Starting buffering for 8fbfdb82-95ce-408e-9f74-5f89ff2852cb:e67e8bc8-e063-4bde-ea12-0fe8e0c5b3b4
+(earth) [k377h395@gas-bingpu ~]$ cd /DATA2/reanalysis/
+(earth) [k377h395@gas-bingpu reanalysis]$ ls
+EAC4  ERA5  MERRA2
+(earth) [k377h395@gas-bingpu reanalysis]$ cd EAC4/
+(earth) [k377h395@gas-bingpu EAC4]$ ls
+aod
+(earth) [k377h395@gas-bingpu EAC4]$ cd aod/
+(earth) [k377h395@gas-bingpu aod]$ ls
+01_3h  02_daily  03_mthly
+(earth) [k377h395@gas-bingpu aod]$ cd 02_daily/
+(earth) [k377h395@gas-bingpu 02_daily]$ ls
+eac4_aod_20080101.nc  eac4_aod_20080901.nc  eac4_aod_20090503.nc
+eac4_aod_20080102.nc  eac4_aod_20080902.nc  eac4_aod_20090504.nc
+eac4_aod_20080103.nc  eac4_aod_20080903.nc  eac4_aod_20090505.nc
+eac4_aod_20080104.nc  eac4_aod_20080904.nc  eac4_aod_20090506.nc
+eac4_aod_20080105.nc  eac4_aod_20080905.nc  eac4_aod_20090507.nc
+eac4_aod_20080106.nc  eac4_aod_20080906.nc  eac4_aod_20090508.nc
+eac4_aod_20080107.nc  eac4_aod_20080907.nc  eac4_aod_20090509.nc
+eac4_aod_20080108.nc  eac4_aod_20080908.nc  eac4_aod_20090510.nc
+eac4_aod_20080109.nc  eac4_aod_20080909.nc  eac4_aod_20090511.nc
+eac4_aod_20080110.nc  eac4_aod_20080910.nc  eac4_aod_20090512.nc
+eac4_aod_20080111.nc  eac4_aod_20080911.nc  eac4_aod_20090513.nc
+eac4_aod_20080112.nc  eac4_aod_20080912.nc  eac4_aod_20090514.nc
+eac4_aod_20080113.nc  eac4_aod_20080913.nc  eac4_aod_20090515.nc
+eac4_aod_20080114.nc  eac4_aod_20080914.nc  eac4_aod_20090516.nc
+eac4_aod_20080115.nc  eac4_aod_20080915.nc  eac4_aod_20090517.nc
+eac4_aod_20080116.nc  eac4_aod_20080916.nc  eac4_aod_20090518.nc
+eac4_aod_20080117.nc  eac4_aod_20080917.nc  eac4_aod_20090519.nc
+eac4_aod_20080118.nc  eac4_aod_20080918.nc  eac4_aod_20090520.nc
+eac4_aod_20080119.nc  eac4_aod_20080919.nc  eac4_aod_20090521.nc
+eac4_aod_20080120.nc  eac4_aod_20080920.nc  eac4_aod_20090522.nc
+eac4_aod_20080121.nc  eac4_aod_20080921.nc  eac4_aod_20090523.nc
+eac4_aod_20080122.nc  eac4_aod_20080922.nc  eac4_aod_20090524.nc
+eac4_aod_20080123.nc  eac4_aod_20080923.nc  eac4_aod_20090525.nc
+eac4_aod_20080124.nc  eac4_aod_20080924.nc  eac4_aod_20090526.nc
+eac4_aod_20080125.nc  eac4_aod_20080925.nc  eac4_aod_20090527.nc
+eac4_aod_20080126.nc  eac4_aod_20080926.nc  eac4_aod_20090528.nc
+eac4_aod_20080127.nc  eac4_aod_20080927.nc  eac4_aod_20090529.nc
+eac4_aod_20080128.nc  eac4_aod_20080928.nc  eac4_aod_20090530.nc
+eac4_aod_20080129.nc  eac4_aod_20080929.nc  eac4_aod_20090531.nc
+eac4_aod_20080130.nc  eac4_aod_20080930.nc  eac4_aod_20090601.nc
+eac4_aod_20080131.nc  eac4_aod_20081001.nc  eac4_aod_20090602.nc
+eac4_aod_20080201.nc  eac4_aod_20081002.nc  eac4_aod_20090603.nc
+eac4_aod_20080202.nc  eac4_aod_20081003.nc  eac4_aod_20090604.nc
+eac4_aod_20080203.nc  eac4_aod_20081004.nc  eac4_aod_20090605.nc
+eac4_aod_20080204.nc  eac4_aod_20081005.nc  eac4_aod_20090606.nc
+eac4_aod_20080205.nc  eac4_aod_20081006.nc  eac4_aod_20090607.nc
+eac4_aod_20080206.nc  eac4_aod_20081007.nc  eac4_aod_20090608.nc
+eac4_aod_20080207.nc  eac4_aod_20081008.nc  eac4_aod_20090609.nc
+eac4_aod_20080208.nc  eac4_aod_20081009.nc  eac4_aod_20090610.nc
+eac4_aod_20080209.nc  eac4_aod_20081010.nc  eac4_aod_20090611.nc
+eac4_aod_20080210.nc  eac4_aod_20081011.nc  eac4_aod_20090612.nc
+eac4_aod_20080211.nc  eac4_aod_20081012.nc  eac4_aod_20090613.nc
+eac4_aod_20080212.nc  eac4_aod_20081013.nc  eac4_aod_20090614.nc
+eac4_aod_20080213.nc  eac4_aod_20081014.nc  eac4_aod_20090615.nc
+eac4_aod_20080214.nc  eac4_aod_20081015.nc  eac4_aod_20090616.nc
+eac4_aod_20080215.nc  eac4_aod_20081016.nc  eac4_aod_20090617.nc
+eac4_aod_20080216.nc  eac4_aod_20081017.nc  eac4_aod_20090618.nc
+eac4_aod_20080217.nc  eac4_aod_20081018.nc  eac4_aod_20090619.nc
+eac4_aod_20080218.nc  eac4_aod_20081019.nc  eac4_aod_20090620.nc
+eac4_aod_20080219.nc  eac4_aod_20081020.nc  eac4_aod_20090621.nc
+eac4_aod_20080220.nc  eac4_aod_20081021.nc  eac4_aod_20090622.nc
+eac4_aod_20080221.nc  eac4_aod_20081022.nc  eac4_aod_20090623.nc
+eac4_aod_20080222.nc  eac4_aod_20081023.nc  eac4_aod_20090624.nc
+eac4_aod_20080223.nc  eac4_aod_20081024.nc  eac4_aod_20090625.nc
+eac4_aod_20080224.nc  eac4_aod_20081025.nc  eac4_aod_20090626.nc
+eac4_aod_20080225.nc  eac4_aod_20081026.nc  eac4_aod_20090627.nc
+eac4_aod_20080226.nc  eac4_aod_20081027.nc  eac4_aod_20090628.nc
+eac4_aod_20080227.nc  eac4_aod_20081028.nc  eac4_aod_20090629.nc
+eac4_aod_20080228.nc  eac4_aod_20081029.nc  eac4_aod_20090630.nc
+eac4_aod_20080229.nc  eac4_aod_20081030.nc  eac4_aod_20090701.nc
+eac4_aod_20080301.nc  eac4_aod_20081031.nc  eac4_aod_20090702.nc
+eac4_aod_20080302.nc  eac4_aod_20081101.nc  eac4_aod_20090703.nc
+eac4_aod_20080303.nc  eac4_aod_20081102.nc  eac4_aod_20090704.nc
+eac4_aod_20080304.nc  eac4_aod_20081103.nc  eac4_aod_20090705.nc
+eac4_aod_20080305.nc  eac4_aod_20081104.nc  eac4_aod_20090706.nc
+eac4_aod_20080306.nc  eac4_aod_20081105.nc  eac4_aod_20090707.nc
+eac4_aod_20080307.nc  eac4_aod_20081106.nc  eac4_aod_20090708.nc
+eac4_aod_20080308.nc  eac4_aod_20081107.nc  eac4_aod_20090709.nc
+eac4_aod_20080309.nc  eac4_aod_20081108.nc  eac4_aod_20090710.nc
+eac4_aod_20080310.nc  eac4_aod_20081109.nc  eac4_aod_20090711.nc
+eac4_aod_20080311.nc  eac4_aod_20081110.nc  eac4_aod_20090712.nc
+eac4_aod_20080312.nc  eac4_aod_20081111.nc  eac4_aod_20090713.nc
+eac4_aod_20080313.nc  eac4_aod_20081112.nc  eac4_aod_20090714.nc
+eac4_aod_20080314.nc  eac4_aod_20081113.nc  eac4_aod_20090715.nc
+eac4_aod_20080315.nc  eac4_aod_20081114.nc  eac4_aod_20090716.nc
+eac4_aod_20080316.nc  eac4_aod_20081115.nc  eac4_aod_20090717.nc
+eac4_aod_20080317.nc  eac4_aod_20081116.nc  eac4_aod_20090718.nc
+eac4_aod_20080318.nc  eac4_aod_20081117.nc  eac4_aod_20090719.nc
+eac4_aod_20080319.nc  eac4_aod_20081118.nc  eac4_aod_20090720.nc
+eac4_aod_20080320.nc  eac4_aod_20081119.nc  eac4_aod_20090721.nc
+eac4_aod_20080321.nc  eac4_aod_20081120.nc  eac4_aod_20090722.nc
+eac4_aod_20080322.nc  eac4_aod_20081121.nc  eac4_aod_20090723.nc
+eac4_aod_20080323.nc  eac4_aod_20081122.nc  eac4_aod_20090724.nc
+eac4_aod_20080324.nc  eac4_aod_20081123.nc  eac4_aod_20090725.nc
+eac4_aod_20080325.nc  eac4_aod_20081124.nc  eac4_aod_20090726.nc
+eac4_aod_20080326.nc  eac4_aod_20081125.nc  eac4_aod_20090727.nc
+eac4_aod_20080327.nc  eac4_aod_20081126.nc  eac4_aod_20090728.nc
+eac4_aod_20080328.nc  eac4_aod_20081127.nc  eac4_aod_20090729.nc
+eac4_aod_20080329.nc  eac4_aod_20081128.nc  eac4_aod_20090730.nc
+eac4_aod_20080330.nc  eac4_aod_20081129.nc  eac4_aod_20090731.nc
+eac4_aod_20080331.nc  eac4_aod_20081130.nc  eac4_aod_20090801.nc
+eac4_aod_20080401.nc  eac4_aod_20081201.nc  eac4_aod_20090802.nc
+eac4_aod_20080402.nc  eac4_aod_20081202.nc  eac4_aod_20090803.nc
+eac4_aod_20080403.nc  eac4_aod_20081203.nc  eac4_aod_20090804.nc
+eac4_aod_20080404.nc  eac4_aod_20081204.nc  eac4_aod_20090805.nc
+eac4_aod_20080405.nc  eac4_aod_20081205.nc  eac4_aod_20090806.nc
+eac4_aod_20080406.nc  eac4_aod_20081206.nc  eac4_aod_20090807.nc
+eac4_aod_20080407.nc  eac4_aod_20081207.nc  eac4_aod_20090808.nc
+eac4_aod_20080408.nc  eac4_aod_20081208.nc  eac4_aod_20090809.nc
+eac4_aod_20080409.nc  eac4_aod_20081209.nc  eac4_aod_20090810.nc
+eac4_aod_20080410.nc  eac4_aod_20081210.nc  eac4_aod_20090811.nc
+eac4_aod_20080411.nc  eac4_aod_20081211.nc  eac4_aod_20090812.nc
+eac4_aod_20080412.nc  eac4_aod_20081212.nc  eac4_aod_20090813.nc
+eac4_aod_20080413.nc  eac4_aod_20081213.nc  eac4_aod_20090814.nc
+eac4_aod_20080414.nc  eac4_aod_20081214.nc  eac4_aod_20090815.nc
+eac4_aod_20080415.nc  eac4_aod_20081215.nc  eac4_aod_20090816.nc
+eac4_aod_20080416.nc  eac4_aod_20081216.nc  eac4_aod_20090817.nc
+eac4_aod_20080417.nc  eac4_aod_20081217.nc  eac4_aod_20090818.nc
+eac4_aod_20080418.nc  eac4_aod_20081218.nc  eac4_aod_20090819.nc
+eac4_aod_20080419.nc  eac4_aod_20081219.nc  eac4_aod_20090820.nc
+eac4_aod_20080420.nc  eac4_aod_20081220.nc  eac4_aod_20090821.nc
+eac4_aod_20080421.nc  eac4_aod_20081221.nc  eac4_aod_20090822.nc
+eac4_aod_20080422.nc  eac4_aod_20081222.nc  eac4_aod_20090823.nc
+eac4_aod_20080423.nc  eac4_aod_20081223.nc  eac4_aod_20090824.nc
+eac4_aod_20080424.nc  eac4_aod_20081224.nc  eac4_aod_20090825.nc
+eac4_aod_20080425.nc  eac4_aod_20081225.nc  eac4_aod_20090826.nc
+eac4_aod_20080426.nc  eac4_aod_20081226.nc  eac4_aod_20090827.nc
+eac4_aod_20080427.nc  eac4_aod_20081227.nc  eac4_aod_20090828.nc
+eac4_aod_20080428.nc  eac4_aod_20081228.nc  eac4_aod_20090829.nc
+eac4_aod_20080429.nc  eac4_aod_20081229.nc  eac4_aod_20090830.nc
+eac4_aod_20080430.nc  eac4_aod_20081230.nc  eac4_aod_20090831.nc
+eac4_aod_20080501.nc  eac4_aod_20081231.nc  eac4_aod_20090901.nc
+eac4_aod_20080502.nc  eac4_aod_20090101.nc  eac4_aod_20090902.nc
+eac4_aod_20080503.nc  eac4_aod_20090102.nc  eac4_aod_20090903.nc
+eac4_aod_20080504.nc  eac4_aod_20090103.nc  eac4_aod_20090904.nc
+eac4_aod_20080505.nc  eac4_aod_20090104.nc  eac4_aod_20090905.nc
+eac4_aod_20080506.nc  eac4_aod_20090105.nc  eac4_aod_20090906.nc
+eac4_aod_20080507.nc  eac4_aod_20090106.nc  eac4_aod_20090907.nc
+eac4_aod_20080508.nc  eac4_aod_20090107.nc  eac4_aod_20090908.nc
+eac4_aod_20080509.nc  eac4_aod_20090108.nc  eac4_aod_20090909.nc
+eac4_aod_20080510.nc  eac4_aod_20090109.nc  eac4_aod_20090910.nc
+eac4_aod_20080511.nc  eac4_aod_20090110.nc  eac4_aod_20090911.nc
+eac4_aod_20080512.nc  eac4_aod_20090111.nc  eac4_aod_20090912.nc
+eac4_aod_20080513.nc  eac4_aod_20090112.nc  eac4_aod_20090913.nc
+eac4_aod_20080514.nc  eac4_aod_20090113.nc  eac4_aod_20090914.nc
+eac4_aod_20080515.nc  eac4_aod_20090114.nc  eac4_aod_20090915.nc
+eac4_aod_20080516.nc  eac4_aod_20090115.nc  eac4_aod_20090916.nc
+eac4_aod_20080517.nc  eac4_aod_20090116.nc  eac4_aod_20090917.nc
+eac4_aod_20080518.nc  eac4_aod_20090117.nc  eac4_aod_20090918.nc
+eac4_aod_20080519.nc  eac4_aod_20090118.nc  eac4_aod_20090919.nc
+eac4_aod_20080520.nc  eac4_aod_20090119.nc  eac4_aod_20090920.nc
+eac4_aod_20080521.nc  eac4_aod_20090120.nc  eac4_aod_20090921.nc
+eac4_aod_20080522.nc  eac4_aod_20090121.nc  eac4_aod_20090922.nc
+eac4_aod_20080523.nc  eac4_aod_20090122.nc  eac4_aod_20090923.nc
+eac4_aod_20080524.nc  eac4_aod_20090123.nc  eac4_aod_20090924.nc
+eac4_aod_20080525.nc  eac4_aod_20090124.nc  eac4_aod_20090925.nc
+eac4_aod_20080526.nc  eac4_aod_20090125.nc  eac4_aod_20090926.nc
+eac4_aod_20080527.nc  eac4_aod_20090126.nc  eac4_aod_20090927.nc
+eac4_aod_20080528.nc  eac4_aod_20090127.nc  eac4_aod_20090928.nc
+eac4_aod_20080529.nc  eac4_aod_20090128.nc  eac4_aod_20090929.nc
+eac4_aod_20080530.nc  eac4_aod_20090129.nc  eac4_aod_20090930.nc
+eac4_aod_20080531.nc  eac4_aod_20090130.nc  eac4_aod_20091001.nc
+eac4_aod_20080601.nc  eac4_aod_20090131.nc  eac4_aod_20091002.nc
+eac4_aod_20080602.nc  eac4_aod_20090201.nc  eac4_aod_20091003.nc
+eac4_aod_20080603.nc  eac4_aod_20090202.nc  eac4_aod_20091004.nc
+eac4_aod_20080604.nc  eac4_aod_20090203.nc  eac4_aod_20091005.nc
+eac4_aod_20080605.nc  eac4_aod_20090204.nc  eac4_aod_20091006.nc
+eac4_aod_20080606.nc  eac4_aod_20090205.nc  eac4_aod_20091007.nc
+eac4_aod_20080607.nc  eac4_aod_20090206.nc  eac4_aod_20091008.nc
+eac4_aod_20080608.nc  eac4_aod_20090207.nc  eac4_aod_20091009.nc
+eac4_aod_20080609.nc  eac4_aod_20090208.nc  eac4_aod_20091010.nc
+eac4_aod_20080610.nc  eac4_aod_20090209.nc  eac4_aod_20091011.nc
+eac4_aod_20080611.nc  eac4_aod_20090210.nc  eac4_aod_20091012.nc
+eac4_aod_20080612.nc  eac4_aod_20090211.nc  eac4_aod_20091013.nc
+eac4_aod_20080613.nc  eac4_aod_20090212.nc  eac4_aod_20091014.nc
+eac4_aod_20080614.nc  eac4_aod_20090213.nc  eac4_aod_20091015.nc
+eac4_aod_20080615.nc  eac4_aod_20090214.nc  eac4_aod_20091016.nc
+eac4_aod_20080616.nc  eac4_aod_20090215.nc  eac4_aod_20091017.nc
+eac4_aod_20080617.nc  eac4_aod_20090216.nc  eac4_aod_20091018.nc
+eac4_aod_20080618.nc  eac4_aod_20090217.nc  eac4_aod_20091019.nc
+eac4_aod_20080619.nc  eac4_aod_20090218.nc  eac4_aod_20091020.nc
+eac4_aod_20080620.nc  eac4_aod_20090219.nc  eac4_aod_20091021.nc
+eac4_aod_20080621.nc  eac4_aod_20090220.nc  eac4_aod_20091022.nc
+eac4_aod_20080622.nc  eac4_aod_20090221.nc  eac4_aod_20091023.nc
+eac4_aod_20080623.nc  eac4_aod_20090222.nc  eac4_aod_20091024.nc
+eac4_aod_20080624.nc  eac4_aod_20090223.nc  eac4_aod_20091025.nc
+eac4_aod_20080625.nc  eac4_aod_20090224.nc  eac4_aod_20091026.nc
+eac4_aod_20080626.nc  eac4_aod_20090225.nc  eac4_aod_20091027.nc
+eac4_aod_20080627.nc  eac4_aod_20090226.nc  eac4_aod_20091028.nc
+eac4_aod_20080628.nc  eac4_aod_20090227.nc  eac4_aod_20091029.nc
+eac4_aod_20080629.nc  eac4_aod_20090228.nc  eac4_aod_20091030.nc
+eac4_aod_20080630.nc  eac4_aod_20090301.nc  eac4_aod_20091031.nc
+eac4_aod_20080701.nc  eac4_aod_20090302.nc  eac4_aod_20091101.nc
+eac4_aod_20080702.nc  eac4_aod_20090303.nc  eac4_aod_20091102.nc
+eac4_aod_20080703.nc  eac4_aod_20090304.nc  eac4_aod_20091103.nc
+eac4_aod_20080704.nc  eac4_aod_20090305.nc  eac4_aod_20091104.nc
+eac4_aod_20080705.nc  eac4_aod_20090306.nc  eac4_aod_20091105.nc
+eac4_aod_20080706.nc  eac4_aod_20090307.nc  eac4_aod_20091106.nc
+eac4_aod_20080707.nc  eac4_aod_20090308.nc  eac4_aod_20091107.nc
+eac4_aod_20080708.nc  eac4_aod_20090309.nc  eac4_aod_20091108.nc
+eac4_aod_20080709.nc  eac4_aod_20090310.nc  eac4_aod_20091109.nc
+eac4_aod_20080710.nc  eac4_aod_20090311.nc  eac4_aod_20091110.nc
+eac4_aod_20080711.nc  eac4_aod_20090312.nc  eac4_aod_20091111.nc
+eac4_aod_20080712.nc  eac4_aod_20090313.nc  eac4_aod_20091112.nc
+eac4_aod_20080713.nc  eac4_aod_20090314.nc  eac4_aod_20091113.nc
+eac4_aod_20080714.nc  eac4_aod_20090315.nc  eac4_aod_20091114.nc
+eac4_aod_20080715.nc  eac4_aod_20090316.nc  eac4_aod_20091115.nc
+eac4_aod_20080716.nc  eac4_aod_20090317.nc  eac4_aod_20091116.nc
+eac4_aod_20080717.nc  eac4_aod_20090318.nc  eac4_aod_20091117.nc
+eac4_aod_20080718.nc  eac4_aod_20090319.nc  eac4_aod_20091118.nc
+eac4_aod_20080719.nc  eac4_aod_20090320.nc  eac4_aod_20091119.nc
+eac4_aod_20080720.nc  eac4_aod_20090321.nc  eac4_aod_20091120.nc
+eac4_aod_20080721.nc  eac4_aod_20090322.nc  eac4_aod_20091121.nc
+eac4_aod_20080722.nc  eac4_aod_20090323.nc  eac4_aod_20091122.nc
+eac4_aod_20080723.nc  eac4_aod_20090324.nc  eac4_aod_20091123.nc
+eac4_aod_20080724.nc  eac4_aod_20090325.nc  eac4_aod_20091124.nc
+eac4_aod_20080725.nc  eac4_aod_20090326.nc  eac4_aod_20091125.nc
+eac4_aod_20080726.nc  eac4_aod_20090327.nc  eac4_aod_20091126.nc
+eac4_aod_20080727.nc  eac4_aod_20090328.nc  eac4_aod_20091127.nc
+eac4_aod_20080728.nc  eac4_aod_20090329.nc  eac4_aod_20091128.nc
+eac4_aod_20080729.nc  eac4_aod_20090330.nc  eac4_aod_20091129.nc
+eac4_aod_20080730.nc  eac4_aod_20090331.nc  eac4_aod_20091130.nc
+eac4_aod_20080731.nc  eac4_aod_20090401.nc  eac4_aod_20091201.nc
+eac4_aod_20080801.nc  eac4_aod_20090402.nc  eac4_aod_20091202.nc
+eac4_aod_20080802.nc  eac4_aod_20090403.nc  eac4_aod_20091203.nc
+eac4_aod_20080803.nc  eac4_aod_20090404.nc  eac4_aod_20091204.nc
+eac4_aod_20080804.nc  eac4_aod_20090405.nc  eac4_aod_20091205.nc
+eac4_aod_20080805.nc  eac4_aod_20090406.nc  eac4_aod_20091206.nc
+eac4_aod_20080806.nc  eac4_aod_20090407.nc  eac4_aod_20091207.nc
+eac4_aod_20080807.nc  eac4_aod_20090408.nc  eac4_aod_20091208.nc
+eac4_aod_20080808.nc  eac4_aod_20090409.nc  eac4_aod_20091209.nc
+eac4_aod_20080809.nc  eac4_aod_20090410.nc  eac4_aod_20091210.nc
+eac4_aod_20080810.nc  eac4_aod_20090411.nc  eac4_aod_20091211.nc
+eac4_aod_20080811.nc  eac4_aod_20090412.nc  eac4_aod_20091212.nc
+eac4_aod_20080812.nc  eac4_aod_20090413.nc  eac4_aod_20091213.nc
+eac4_aod_20080813.nc  eac4_aod_20090414.nc  eac4_aod_20091214.nc
+eac4_aod_20080814.nc  eac4_aod_20090415.nc  eac4_aod_20091215.nc
+eac4_aod_20080815.nc  eac4_aod_20090416.nc  eac4_aod_20091216.nc
+eac4_aod_20080816.nc  eac4_aod_20090417.nc  eac4_aod_20091217.nc
+eac4_aod_20080817.nc  eac4_aod_20090418.nc  eac4_aod_20091218.nc
+eac4_aod_20080818.nc  eac4_aod_20090419.nc  eac4_aod_20091219.nc
+eac4_aod_20080819.nc  eac4_aod_20090420.nc  eac4_aod_20091220.nc
+eac4_aod_20080820.nc  eac4_aod_20090421.nc  eac4_aod_20091221.nc
+eac4_aod_20080821.nc  eac4_aod_20090422.nc  eac4_aod_20091222.nc
+eac4_aod_20080822.nc  eac4_aod_20090423.nc  eac4_aod_20091223.nc
+eac4_aod_20080823.nc  eac4_aod_20090424.nc  eac4_aod_20091224.nc
+eac4_aod_20080824.nc  eac4_aod_20090425.nc  eac4_aod_20091225.nc
+eac4_aod_20080825.nc  eac4_aod_20090426.nc  eac4_aod_20091226.nc
+eac4_aod_20080826.nc  eac4_aod_20090427.nc  eac4_aod_20091227.nc
+eac4_aod_20080827.nc  eac4_aod_20090428.nc  eac4_aod_20091228.nc
+eac4_aod_20080828.nc  eac4_aod_20090429.nc  eac4_aod_20091229.nc
+eac4_aod_20080829.nc  eac4_aod_20090430.nc  eac4_aod_20091230.nc
+eac4_aod_20080830.nc  eac4_aod_20090501.nc  eac4_aod_20091231.nc
+eac4_aod_20080831.nc  eac4_aod_20090502.nc
+(earth) [k377h395@gas-bingpu 02_daily]$ 

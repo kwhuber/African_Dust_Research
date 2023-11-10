@@ -1,0 +1,31 @@
+To Do: 
+1. Create individual cells to house the different data sets (each needs a color bar)
+2. calculate diff between 
+	VIIRS and MEERA
+		10 - 00
+	VIIRS and EAC4
+		11 - 1
+	VIIRS NAAPS
+		12 - 2
+
+	*in terms of plotting, plot regular VIIRS and respective partner (MEERA, EAC4, NAAPS) with the same color bar used to plot regular AOD (this will be figures 1 and 2) but when plotting their difference (use a different color bar) 
+
+
+3. Read papers
+4. look into xarray and matplotlib
+5. look into how satellites work and how different ones can match up
+
+
+
+10.30.23
+
+1. Finish color bar errors
+2. plot dates correctly
+3. find difference (plot satellite, reanalysis, and difference)
+	-reanalysis(0-2) minus satellite(10-12)
+
+4. Create a box over land and ocean
+5. Plot the relationship between them over the 15 days
+	-plot the curves of each dataset over land 
+	-plot the curves of each dataset over ocean
+	-xarray email Qinjian sent me will detail how to calculate area average (weighted)

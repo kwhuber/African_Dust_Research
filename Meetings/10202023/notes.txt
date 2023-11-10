@@ -1,0 +1,36 @@
+1. Why do I have to type $ cd /DATA to get into this database? 
+
+2. How do I create a title for each different set of data? 
+
+3. How do I separate each dataset by a color bar? 
+
+4. In the following directory...
+MERRA2 AOD:
+/DATA2/reanalysis/MERRA2/tavg1_2d_aer_Nx/00_global, 00_global does not exist so I used raw?
+A: Qinjian changed directories
+
+5. for dir_data4 how do I pick just the noon hour time? 
+A: done in code
+
+6. Why can't I print ds4?
+A: fixed in code
+
+To Do: 
+1. Create individual cells to house the different data sets (each needs a color bar)
+2. calculate diff between 
+	VIIRS and MEERA
+		10 - 00
+	VIIRS and EAC4
+		11 - 1
+	VIIRS NAAPS
+		12 - 2
+
+	*in terms of plotting, plot regular VIIRS and respective partner (MEERA, EAC4, NAAPS) with the same color bar used to plot regular AOD (this will be figures 1 and 2) but when plotting their difference (use a different color bar) 
+
+
+3. Read papers
+4. look into xarray and matplotlib
+5. look into how satellites work and how different ones can match up 
+
+MODIS (1999) older
+VIIRS  (2012)  newer

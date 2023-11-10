@@ -1,0 +1,367 @@
+Last login: Thu Oct  5 08:59:29 on ttys000
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+Kadens-MacBook-Pro-689:~ kadenhuber$ 
+Kadens-MacBook-Pro-689:~ kadenhuber$ cd
+Kadens-MacBook-Pro-689:~ kadenhuber$ ls
+Applications	Desktop		Downloads	Movies		Pictures
+Coding		Documents	Library		Music		Public
+Kadens-MacBook-Pro-689:~ kadenhuber$ chsh -s /bin/zsh
+Changing shell for kadenhuber.
+Password for kadenhuber: 
+Kadens-MacBook-Pro-689:~ kadenhuber$ 
+Kadens-MacBook-Pro-689:~ kadenhuber$ justjp3
+-bash: justjp3: command not found
+Kadens-MacBook-Pro-689:~ kadenhuber$ dustjp3
+*******************************************************************************
+                                NOTICE TO USERS
+
+Access to electronic resources at the University of Kansas is restricted to
+employees, students, or individuals authorized by the University or its
+affiliates. Use of this system is subject to all policies and procedures set
+forth by the University located at www.policy.ku.edu. Unauthorized use is 
+prohibited and may result in administrative or legal action. The University 
+may monitor the use of this system for purposes related to security management,
+system operations, and intellectual property compliance.
+
+*******************************************************************************
+(k377h395@10.101.225.38) Password: 
+Last login: Wed Oct  4 15:11:54 2023 from 10.106.192.172
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for k377h395: 
+                   ..                    k377h395@gas-bingpu.gas.ku.edu
+                 .PLTJ.                  OS: CentOS 
+                <><><><>                 Kernel: x86_64 Linux 3.10.0-1160.99.1.el7.x86_64
+       KKSSV' 4KKK LJ KKKL.'VSSKK        Uptime: 11d 8h 0m
+       KKV' 4KKKKK LJ KKKKAL 'VKK        Packages: 1065
+       V' ' 'VKKKK LJ KKKKV' ' 'V        Shell: bash 4.2.46
+       .4MA.' 'VKK LJ KKV' '.4Mb.        Resolution: No X Server
+     . KKKKKA.' 'V LJ V' '.4KKKKK .      WM: Not Found
+   .4D KKKKKKKA.'' LJ ''.4KKKKKKK FA.    GTK Theme: Adwaita [GTK3]
+  <QDD ++++++++++++  ++++++++++++ GFD>   Disk: 86T / 162T (53%)
+   'VD KKKKKKKK'.. LJ ..'KKKKKKKK FV     CPU: Intel Xeon Gold 6128 @ 24x 3.7GHz [37.0°C]
+     ' VKKKKK'. .4 LJ K. .'KKKKKV '      GPU: Matrox Electronics Systems Ltd. Integrated Matrox G200eW3 Graphics Controller (rev 04)
+        'VK'. .4KK LJ KKA. .'KV'         RAM: 15938MiB / 63689MiB
+       A. . .4KKKK LJ KKKKA. . .4       
+       KKA. 'KKKKK LJ KKKKK' .4KK       
+       KKSSA. VKKK LJ KKKV .4SSKK       
+                <><><><>                
+                 'MKKM'                 
+                   ''                   
+-bash: jupyter: command not found
+(base) [k377h395@gas-bingpu ~]$ earth
+(earth) [k377h395@gas-bingpu ~]$ mamba activate earth
+(earth) [k377h395@gas-bingpu ~]$ ls
+CFSDEPT  CFSUSER  mambaforge  Mambaforge-Linux-x86_64.sh
+(earth) [k377h395@gas-bingpu ~]$ 
+(earth) [k377h395@gas-bingpu ~]$ dustjp2
+-bash: dustjp2: command not found
+(earth) [k377h395@gas-bingpu ~]$ jp2
+[I 2023-10-05 09:09:32.791 ServerApp] Package notebook took 0.0000s to import
+[I 2023-10-05 09:09:32.809 ServerApp] Package jupyter_lsp took 0.0170s to import
+[W 2023-10-05 09:09:32.809 ServerApp] A `_jupyter_server_extension_points` function was not found in jupyter_lsp. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+[I 2023-10-05 09:09:32.816 ServerApp] Package jupyter_server_terminals took 0.0065s to import
+[I 2023-10-05 09:09:32.816 ServerApp] Package jupyterlab took 0.0000s to import
+[I 2023-10-05 09:09:32.842 ServerApp] Package notebook_shim took 0.0000s to import
+[W 2023-10-05 09:09:32.842 ServerApp] A `_jupyter_server_extension_points` function was not found in notebook_shim. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+[I 2023-10-05 09:09:32.843 ServerApp] jupyter_lsp | extension was successfully linked.
+[I 2023-10-05 09:09:32.846 ServerApp] jupyter_server_terminals | extension was successfully linked.
+[W 2023-10-05 09:09:32.848 LabApp] 'allow_origin' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2023-10-05 09:09:32.848 LabApp] 'port_retries' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[I 2023-10-05 09:09:32.850 ServerApp] jupyterlab | extension was successfully linked.
+[I 2023-10-05 09:09:32.853 ServerApp] notebook | extension was successfully linked.
+[I 2023-10-05 09:09:33.049 ServerApp] notebook_shim | extension was successfully linked.
+[I 2023-10-05 09:09:33.069 ServerApp] notebook_shim | extension was successfully loaded.
+[I 2023-10-05 09:09:33.072 ServerApp] jupyter_lsp | extension was successfully loaded.
+[I 2023-10-05 09:09:33.073 ServerApp] jupyter_server_terminals | extension was successfully loaded.
+[I 2023-10-05 09:09:33.075 LabApp] JupyterLab extension loaded from /home/k377h395/mambaforge/envs/earth/lib/python3.11/site-packages/jupyterlab
+[I 2023-10-05 09:09:33.075 LabApp] JupyterLab application directory is /home/k377h395/mambaforge/envs/earth/share/jupyter/lab
+[I 2023-10-05 09:09:33.076 LabApp] Extension Manager is 'pypi'.
+[I 2023-10-05 09:09:33.079 ServerApp] jupyterlab | extension was successfully loaded.
+[I 2023-10-05 09:09:33.082 ServerApp] notebook | extension was successfully loaded.
+[I 2023-10-05 09:09:33.083 ServerApp] Serving notebooks from local directory: /home/k377h395
+[I 2023-10-05 09:09:33.083 ServerApp] Jupyter Server 2.7.3 is running at:
+[I 2023-10-05 09:09:33.083 ServerApp] http://localhost:2000/tree?token=85053187a76247e7eba321f1c95ae4048193280ca19d8949
+[I 2023-10-05 09:09:33.083 ServerApp]     http://127.0.0.1:2000/tree?token=85053187a76247e7eba321f1c95ae4048193280ca19d8949
+[I 2023-10-05 09:09:33.083 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 2023-10-05 09:09:33.087 ServerApp] 
+    
+    To access the server, open this file in a browser:
+        file:///home/k377h395/.local/share/jupyter/runtime/jpserver-186252-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:2000/tree?token=85053187a76247e7eba321f1c95ae4048193280ca19d8949
+        http://127.0.0.1:2000/tree?token=85053187a76247e7eba321f1c95ae4048193280ca19d8949
+[I 2023-10-05 09:09:33.339 ServerApp] Skipped non-installed server(s): bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
+^C[I 2023-10-05 09:10:57.380 ServerApp] interrupted
+[I 2023-10-05 09:10:57.380 ServerApp] Serving notebooks from local directory: /home/k377h395
+    0 active kernels
+    Jupyter Server 2.7.3 is running at:
+    http://localhost:2000/tree?token=85053187a76247e7eba321f1c95ae4048193280ca19d8949
+        http://127.0.0.1:2000/tree?token=85053187a76247e7eba321f1c95ae4048193280ca19d8949
+Shutdown this Jupyter server (y/[n])? y
+[C 2023-10-05 09:10:59.430 ServerApp] Shutdown confirmed
+[I 2023-10-05 09:10:59.433 ServerApp] Shutting down 5 extensions
+(earth) [k377h395@gas-bingpu ~]$ mamba deactivate earth
+
+ArgumentError: deactivate does not accept arguments
+remainder_args: ['earth']
+
+
+(earth) [k377h395@gas-bingpu ~]$ exit
+logout
+Connection to 10.101.225.38 closed.
+Kadens-MacBook-Pro-689:~ kadenhuber$ 
+Kadens-MacBook-Pro-689:~ kadenhuber$ jp3
+-bash: jp3: command not found
+Kadens-MacBook-Pro-689:~ kadenhuber$ earth
+-bash: earth: command not found
+Kadens-MacBook-Pro-689:~ kadenhuber$ dustjp3
+*******************************************************************************
+                                NOTICE TO USERS
+
+Access to electronic resources at the University of Kansas is restricted to
+employees, students, or individuals authorized by the University or its
+affiliates. Use of this system is subject to all policies and procedures set
+forth by the University located at www.policy.ku.edu. Unauthorized use is 
+prohibited and may result in administrative or legal action. The University 
+may monitor the use of this system for purposes related to security management,
+system operations, and intellectual property compliance.
+
+*******************************************************************************
+(k377h395@10.101.225.38) Password: 
+(k377h395@10.101.225.38) Password: 
+Last failed login: Thu Oct  5 09:11:57 CDT 2023 from 10.104.89.52 on ssh:notty
+There was 1 failed login attempt since the last successful login.
+Last login: Thu Oct  5 09:02:12 2023 from 10.104.89.52
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for k377h395: 
+                   ..                    k377h395@gas-bingpu.gas.ku.edu
+                 .PLTJ.                  OS: CentOS 
+                <><><><>                 Kernel: x86_64 Linux 3.10.0-1160.99.1.el7.x86_64
+       KKSSV' 4KKK LJ KKKL.'VSSKK        Uptime: 11d 8h 10m
+       KKV' 4KKKKK LJ KKKKAL 'VKK        Packages: 1065
+       V' ' 'VKKKK LJ KKKKV' ' 'V        Shell: bash 4.2.46
+       .4MA.' 'VKK LJ KKV' '.4Mb.        Resolution: No X Server
+     . KKKKKA.' 'V LJ V' '.4KKKKK .      WM: Not Found
+   .4D KKKKKKKA.'' LJ ''.4KKKKKKK FA.    GTK Theme: Adwaita [GTK3]
+  <QDD ++++++++++++  ++++++++++++ GFD>   Disk: 86T / 162T (53%)
+   'VD KKKKKKKK'.. LJ ..'KKKKKKKK FV     CPU: Intel Xeon Gold 6128 @ 24x 3.7GHz [37.0°C]
+     ' VKKKKK'. .4 LJ K. .'KKKKKV '      GPU: Matrox Electronics Systems Ltd. Integrated Matrox G200eW3 Graphics Controller (rev 04)
+        'VK'. .4KK LJ KKA. .'KV'         RAM: 15937MiB / 63689MiB
+       A. . .4KKKK LJ KKKKA. . .4       
+       KKA. 'KKKKK LJ KKKKK' .4KK       
+       KKSSA. VKKK LJ KKKV .4SSKK       
+                <><><><>                
+                 'MKKM'                 
+                   ''                   
+-bash: jupyter: command not found
+(base) [k377h395@gas-bingpu ~]$ earth
+(earth) [k377h395@gas-bingpu ~]$ jp3
+[I 2023-10-05 09:12:17.526 ServerApp] Package notebook took 0.0000s to import
+[I 2023-10-05 09:12:17.535 ServerApp] Package jupyter_lsp took 0.0084s to import
+[W 2023-10-05 09:12:17.535 ServerApp] A `_jupyter_server_extension_points` function was not found in jupyter_lsp. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+[I 2023-10-05 09:12:17.538 ServerApp] Package jupyter_server_terminals took 0.0035s to import
+[I 2023-10-05 09:12:17.539 ServerApp] Package jupyterlab took 0.0000s to import
+[I 2023-10-05 09:12:17.561 ServerApp] Package notebook_shim took 0.0000s to import
+[W 2023-10-05 09:12:17.561 ServerApp] A `_jupyter_server_extension_points` function was not found in notebook_shim. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+[I 2023-10-05 09:12:17.561 ServerApp] jupyter_lsp | extension was successfully linked.
+[I 2023-10-05 09:12:17.564 ServerApp] jupyter_server_terminals | extension was successfully linked.
+[W 2023-10-05 09:12:17.565 LabApp] 'allow_origin' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2023-10-05 09:12:17.565 LabApp] 'port_retries' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[I 2023-10-05 09:12:17.568 ServerApp] jupyterlab | extension was successfully linked.
+[I 2023-10-05 09:12:17.571 ServerApp] notebook | extension was successfully linked.
+[I 2023-10-05 09:12:17.730 ServerApp] notebook_shim | extension was successfully linked.
+[I 2023-10-05 09:12:17.755 ServerApp] notebook_shim | extension was successfully loaded.
+[I 2023-10-05 09:12:17.759 ServerApp] jupyter_lsp | extension was successfully loaded.
+[I 2023-10-05 09:12:17.761 ServerApp] jupyter_server_terminals | extension was successfully loaded.
+[I 2023-10-05 09:12:17.763 LabApp] JupyterLab extension loaded from /home/k377h395/mambaforge/envs/earth/lib/python3.11/site-packages/jupyterlab
+[I 2023-10-05 09:12:17.764 LabApp] JupyterLab application directory is /home/k377h395/mambaforge/envs/earth/share/jupyter/lab
+[I 2023-10-05 09:12:17.764 LabApp] Extension Manager is 'pypi'.
+[I 2023-10-05 09:12:17.768 ServerApp] jupyterlab | extension was successfully loaded.
+[I 2023-10-05 09:12:17.773 ServerApp] notebook | extension was successfully loaded.
+[I 2023-10-05 09:12:17.774 ServerApp] Serving notebooks from local directory: /home/k377h395
+[I 2023-10-05 09:12:17.774 ServerApp] Jupyter Server 2.7.3 is running at:
+[I 2023-10-05 09:12:17.775 ServerApp] http://localhost:3000/tree?token=0f128509e307ddedf7a9fcad71483c9b34be701087b23cda
+[I 2023-10-05 09:12:17.775 ServerApp]     http://127.0.0.1:3000/tree?token=0f128509e307ddedf7a9fcad71483c9b34be701087b23cda
+[I 2023-10-05 09:12:17.775 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 2023-10-05 09:12:17.780 ServerApp] 
+    
+    To access the server, open this file in a browser:
+        file:///home/k377h395/.local/share/jupyter/runtime/jpserver-187254-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:3000/tree?token=0f128509e307ddedf7a9fcad71483c9b34be701087b23cda
+        http://127.0.0.1:3000/tree?token=0f128509e307ddedf7a9fcad71483c9b34be701087b23cda
+[I 2023-10-05 09:12:18.070 ServerApp] Skipped non-installed server(s): bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
+[W 2023-10-05 09:12:42.379 ServerApp] 404 OPTIONS /api/colab/build-info?token=[secret] (b000b0553a6a4d93a8e89947a44b9b23@::1) 28.65ms referer=https://colab.research.google.com/
+[W 2023-10-05 09:12:42.410 ServerApp] 404 GET /api/colab/build-info?token=[secret] (3b59d3fe7523449a98f8fccc3adb84c9@::1) 2.12ms referer=https://colab.research.google.com/
+0.00s - Debugger warning: It seems that frozen modules are being used, which may
+0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+0.00s - to python to disable frozen modules.
+0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+[I 2023-10-05 09:12:42.646 ServerApp] Kernel started: 90f8ed75-ebd4-4f66-8724-dd789b9f5f70
+0.00s - Debugger warning: It seems that frozen modules are being used, which may
+0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+0.00s - to python to disable frozen modules.
+0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+[I 2023-10-05 09:12:43.158 ServerApp] Connecting to kernel 90f8ed75-ebd4-4f66-8724-dd789b9f5f70.
+^C[I 2023-10-05 09:14:05.745 ServerApp] interrupted
+[I 2023-10-05 09:14:05.746 ServerApp] Serving notebooks from local directory: /home/k377h395
+    1 active kernel
+    Jupyter Server 2.7.3 is running at:
+    http://localhost:3000/tree?token=0f128509e307ddedf7a9fcad71483c9b34be701087b23cda
+        http://127.0.0.1:3000/tree?token=0f128509e307ddedf7a9fcad71483c9b34be701087b23cda
+Shutdown this Jupyter server (y/[n])? y
+[C 2023-10-05 09:14:07.039 ServerApp] Shutdown confirmed
+[I 2023-10-05 09:14:07.041 ServerApp] Shutting down 5 extensions
+[I 2023-10-05 09:14:07.041 ServerApp] Shutting down 1 kernel
+[I 2023-10-05 09:14:07.042 ServerApp] Kernel shutdown: 90f8ed75-ebd4-4f66-8724-dd789b9f5f70
+[I 2023-10-05 09:14:07.117 ServerApp] Starting buffering for 90f8ed75-ebd4-4f66-8724-dd789b9f5f70:b4346bc2-ff0a-490e-8823-17b81ef951d8
+(earth) [k377h395@gas-bingpu ~]$ mamba deactivate earth
+
+ArgumentError: deactivate does not accept arguments
+remainder_args: ['earth']
+
+
+(earth) [k377h395@gas-bingpu ~]$ ^C
+(earth) [k377h395@gas-bingpu ~]$ exit
+logout
+Connection to 10.101.225.38 closed.
+Kadens-MacBook-Pro-689:~ kadenhuber$ dustjp3
+*******************************************************************************
+                                NOTICE TO USERS
+
+Access to electronic resources at the University of Kansas is restricted to
+employees, students, or individuals authorized by the University or its
+affiliates. Use of this system is subject to all policies and procedures set
+forth by the University located at www.policy.ku.edu. Unauthorized use is 
+prohibited and may result in administrative or legal action. The University 
+may monitor the use of this system for purposes related to security management,
+system operations, and intellectual property compliance.
+
+*******************************************************************************
+(k377h395@10.101.225.38) Password: 
+Last login: Thu Oct  5 09:12:03 2023 from 10.104.89.52
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for k377h395: 
+                   ..                    k377h395@gas-bingpu.gas.ku.edu
+                 .PLTJ.                  OS: CentOS 
+                <><><><>                 Kernel: x86_64 Linux 3.10.0-1160.99.1.el7.x86_64
+       KKSSV' 4KKK LJ KKKL.'VSSKK        Uptime: 11d 8h 13m
+       KKV' 4KKKKK LJ KKKKAL 'VKK        Packages: 1065
+       V' ' 'VKKKK LJ KKKKV' ' 'V        Shell: bash 4.2.46
+       .4MA.' 'VKK LJ KKV' '.4Mb.        Resolution: No X Server
+     . KKKKKA.' 'V LJ V' '.4KKKKK .      WM: Not Found
+   .4D KKKKKKKA.'' LJ ''.4KKKKKKK FA.    GTK Theme: Adwaita [GTK3]
+  <QDD ++++++++++++  ++++++++++++ GFD>   Disk: 86T / 162T (53%)
+   'VD KKKKKKKK'.. LJ ..'KKKKKKKK FV     CPU: Intel Xeon Gold 6128 @ 24x 3.7GHz [36.0°C]
+     ' VKKKKK'. .4 LJ K. .'KKKKKV '      GPU: Matrox Electronics Systems Ltd. Integrated Matrox G200eW3 Graphics Controller (rev 04)
+        'VK'. .4KK LJ KKA. .'KV'         RAM: 15937MiB / 63689MiB
+       A. . .4KKKK LJ KKKKA. . .4       
+       KKA. 'KKKKK LJ KKKKK' .4KK       
+       KKSSA. VKKK LJ KKKV .4SSKK       
+                <><><><>                
+                 'MKKM'                 
+                   ''                   
+-bash: jupyter: command not found
+(base) [k377h395@gas-bingpu ~]$ jp3
+-bash: jupyter: command not found
+(base) [k377h395@gas-bingpu ~]$ earth
+(earth) [k377h395@gas-bingpu ~]$ jp3
+[I 2023-10-05 09:15:03.680 ServerApp] Package notebook took 0.0000s to import
+[I 2023-10-05 09:15:03.689 ServerApp] Package jupyter_lsp took 0.0084s to import
+[W 2023-10-05 09:15:03.689 ServerApp] A `_jupyter_server_extension_points` function was not found in jupyter_lsp. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+[I 2023-10-05 09:15:03.693 ServerApp] Package jupyter_server_terminals took 0.0034s to import
+[I 2023-10-05 09:15:03.693 ServerApp] Package jupyterlab took 0.0000s to import
+[I 2023-10-05 09:15:03.715 ServerApp] Package notebook_shim took 0.0000s to import
+[W 2023-10-05 09:15:03.715 ServerApp] A `_jupyter_server_extension_points` function was not found in notebook_shim. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+[I 2023-10-05 09:15:03.715 ServerApp] jupyter_lsp | extension was successfully linked.
+[I 2023-10-05 09:15:03.718 ServerApp] jupyter_server_terminals | extension was successfully linked.
+[W 2023-10-05 09:15:03.720 LabApp] 'allow_origin' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2023-10-05 09:15:03.720 LabApp] 'port_retries' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[I 2023-10-05 09:15:03.722 ServerApp] jupyterlab | extension was successfully linked.
+[I 2023-10-05 09:15:03.725 ServerApp] notebook | extension was successfully linked.
+[I 2023-10-05 09:15:03.968 ServerApp] notebook_shim | extension was successfully linked.
+[I 2023-10-05 09:15:03.993 ServerApp] notebook_shim | extension was successfully loaded.
+[I 2023-10-05 09:15:03.997 ServerApp] jupyter_lsp | extension was successfully loaded.
+[I 2023-10-05 09:15:03.998 ServerApp] jupyter_server_terminals | extension was successfully loaded.
+[I 2023-10-05 09:15:04.001 LabApp] JupyterLab extension loaded from /home/k377h395/mambaforge/envs/earth/lib/python3.11/site-packages/jupyterlab
+[I 2023-10-05 09:15:04.001 LabApp] JupyterLab application directory is /home/k377h395/mambaforge/envs/earth/share/jupyter/lab
+[I 2023-10-05 09:15:04.002 LabApp] Extension Manager is 'pypi'.
+[I 2023-10-05 09:15:04.006 ServerApp] jupyterlab | extension was successfully loaded.
+[I 2023-10-05 09:15:04.010 ServerApp] notebook | extension was successfully loaded.
+[I 2023-10-05 09:15:04.012 ServerApp] Serving notebooks from local directory: /home/k377h395
+[I 2023-10-05 09:15:04.012 ServerApp] Jupyter Server 2.7.3 is running at:
+[I 2023-10-05 09:15:04.012 ServerApp] http://localhost:3000/tree?token=842cfd1bc24e63317d0eab7cb0c978382bc2f76ce8eafc47
+[I 2023-10-05 09:15:04.012 ServerApp]     http://127.0.0.1:3000/tree?token=842cfd1bc24e63317d0eab7cb0c978382bc2f76ce8eafc47
+[I 2023-10-05 09:15:04.012 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 2023-10-05 09:15:04.016 ServerApp] 
+    
+    To access the server, open this file in a browser:
+        file:///home/k377h395/.local/share/jupyter/runtime/jpserver-188375-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:3000/tree?token=842cfd1bc24e63317d0eab7cb0c978382bc2f76ce8eafc47
+        http://127.0.0.1:3000/tree?token=842cfd1bc24e63317d0eab7cb0c978382bc2f76ce8eafc47
+[I 2023-10-05 09:15:04.334 ServerApp] Skipped non-installed server(s): bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
+[W 2023-10-05 09:15:15.654 ServerApp] 404 OPTIONS /api/colab/build-info?token=[secret] (42ac5dbe6d0e468fb185922984385842@::1) 27.11ms referer=https://colab.research.google.com/
+[W 2023-10-05 09:15:15.675 ServerApp] 404 GET /api/colab/build-info?token=[secret] (9ca37420737b4b4fb89d5b5762081d8c@::1) 2.03ms referer=https://colab.research.google.com/
+0.00s - Debugger warning: It seems that frozen modules are being used, which may
+0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+0.00s - to python to disable frozen modules.
+0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+[I 2023-10-05 09:15:15.910 ServerApp] Kernel started: 5ed73b53-06c4-43ab-b418-f7537b82aaf9
+0.00s - Debugger warning: It seems that frozen modules are being used, which may
+0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+0.00s - to python to disable frozen modules.
+0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+[I 2023-10-05 09:15:16.424 ServerApp] Connecting to kernel 5ed73b53-06c4-43ab-b418-f7537b82aaf9.
+^C[I 2023-10-05 09:15:20.501 ServerApp] interrupted
+[I 2023-10-05 09:15:20.501 ServerApp] Serving notebooks from local directory: /home/k377h395
+    1 active kernel
+    Jupyter Server 2.7.3 is running at:
+    http://localhost:3000/tree?token=842cfd1bc24e63317d0eab7cb0c978382bc2f76ce8eafc47
+        http://127.0.0.1:3000/tree?token=842cfd1bc24e63317d0eab7cb0c978382bc2f76ce8eafc47
+Shutdown this Jupyter server (y/[n])? y
+[C 2023-10-05 09:15:21.832 ServerApp] Shutdown confirmed
+[I 2023-10-05 09:15:21.834 ServerApp] Shutting down 5 extensions
+[I 2023-10-05 09:15:21.834 ServerApp] Shutting down 1 kernel
+[I 2023-10-05 09:15:21.835 ServerApp] Kernel shutdown: 5ed73b53-06c4-43ab-b418-f7537b82aaf9
+[I 2023-10-05 09:15:21.891 ServerApp] Starting buffering for 5ed73b53-06c4-43ab-b418-f7537b82aaf9:b6aedf79-a3ad-46df-b5ec-cc9c6e2ab2c6
+(earth) [k377h395@gas-bingpu ~]$ exit
+logout
+
+
+^CKadens-MacBook-Pro-689:~ kadenhuber$ 
+Kadens-MacBook-Pro-689:~ kadenhuber$ 
+Kadens-MacBook-Pro-689:~ kadenhuber$ exit
+logout
+
+Saving session...
+...copying shared history...
+...saving history...truncating history files...
+...completed.
+
+[Process completed]
+
