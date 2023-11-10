@@ -1,0 +1,189 @@
+Last login: Thu Nov  9 19:49:18 on ttys001
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+Kadens-MacBook-Pro-689:~ kadenhuber$ cd Documents
+Kadens-MacBook-Pro-689:Documents kadenhuber$ git status
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   Coding/Dust_Research/Code/.DS_Store
+	modified:   Coding/Dust_Research/Code/Four_Datasets_Exercise/.DS_Store
+	modified:   test/.DS_Store
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.DS_Store
+	.localized
+	Coding/.DS_Store
+	Coding/.gitignore
+	Coding/C++Bootcamp/
+	Coding/Dust_Research/.DS_Store
+	Coding/Dust_Research/Meetings/
+	Coding/Dust_Research/Papers/
+	Coding/Dust_Research/dustserver_names.png
+	Coding/Github/
+	Coding/Kanbes/
+	Coding/Miscellaneous_Commands/
+	Coding/TechInterview_Questions/
+	Coding/kwhuber.github.io/
+	FALL2022/
+	FALL2023/
+	Personal/
+	SPRING2023/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Kadens-MacBook-Pro-689:Documents kadenhuber$ cd Coding
+Kadens-MacBook-Pro-689:Coding kadenhuber$ git status
+On branch main
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   Dust_Research/Code/.DS_Store
+	modified:   Dust_Research/Code/Four_Datasets_Exercise/.DS_Store
+	deleted:    ../test/.DS_Store
+	deleted:    ../test/folder1/main.py
+	deleted:    ../test/folder1/main2.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	../.DS_Store
+	../.localized
+	.DS_Store
+	.gitignore
+	C++Bootcamp/
+	Dust_Research/.DS_Store
+	Dust_Research/Meetings/
+	Dust_Research/Papers/
+	Dust_Research/dustserver_names.png
+	Github/
+	Kanbes/
+	Miscellaneous_Commands/
+	TechInterview_Questions/
+	kwhuber.github.io/
+	../FALL2022/
+	../FALL2023/
+	../Personal/
+	../SPRING2023/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Kadens-MacBook-Pro-689:Coding kadenhuber$ git Dust_Research
+git: 'Dust_Research' is not a git command. See 'git --help'.
+Kadens-MacBook-Pro-689:Coding kadenhuber$ cd Dust_Research
+Kadens-MacBook-Pro-689:Dust_Research kadenhuber$ ls
+Code			Papers
+Meetings		dustserver_names.png
+Kadens-MacBook-Pro-689:Dust_Research kadenhuber$ gti status
+-bash: gti: command not found
+Kadens-MacBook-Pro-689:Dust_Research kadenhuber$ git branch
+* main
+Kadens-MacBook-Pro-689:Dust_Research kadenhuber$ git status
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   Code/Four_Datasets_Exercise/.DS_Store
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.DS_Store
+	Meetings/
+	Papers/
+	dustserver_names.png
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Kadens-MacBook-Pro-689:Dust_Research kadenhuber$ git fetch
+remote: Enumerating objects: 36, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 36 (delta 0), reused 0 (delta 0), pack-reused 35
+Unpacking objects: 100% (36/36), 92.13 MiB | 1.65 MiB/s, done.
+From github.com:kwhuber/African_Dust_Research
+ * [new branch]      main       -> origin/main
+Kadens-MacBook-Pro-689:Dust_Research kadenhuber$ git log --graph --oneline --all
+* 484db1b (HEAD -> main) Added new code.
+* 8d5f46d (origin/main) Added research papers.
+* e70fc46 Added code folder.
+Kadens-MacBook-Pro-689:Dust_Research kadenhuber$ git merge
+fatal: No remote for the current branch.
+Kadens-MacBook-Pro-689:Dust_Research kadenhuber$ git branch --set-upstream-to=origin/main main
+branch 'main' set up to track 'origin/main'.
+Kadens-MacBook-Pro-689:Dust_Research kadenhuber$ git merge
+fatal: refusing to merge unrelated histories
+Kadens-MacBook-Pro-689:Dust_Research kadenhuber$ git merge --allow-unrelated-histories
+error: The following untracked working tree files would be overwritten by merge:
+	Papers/.DS_Store
+	Papers/Investigation_of_June_2020.pdf
+	Papers/Reviews of Geophysics - 2012 - Ginoux.pdf
+	Papers/The_Atmospheri_Drivers_of.pdf
+	Papers/The_dust_load_and.pdf
+	Papers/acp-21-12359-2021.pdf
+	Papers/bams-BAMS-D-21-0014.1.pdf
+Please move or remove them before you merge.
+Aborting
+Merge with strategy ort failed.
+Kadens-MacBook-Pro-689:Dust_Research kadenhuber$ git rm Papers
+fatal: pathspec 'Papers' did not match any files
+Kadens-MacBook-Pro-689:Dust_Research kadenhuber$ git add Papers
+Kadens-MacBook-Pro-689:Dust_Research kadenhuber$ git commit -m "Add untracked files before merge."
+[main 3c2c0d4] Add untracked files before merge.
+ 7 files changed, 158886 insertions(+)
+ create mode 100644 Papers/.DS_Store
+ create mode 100644 Papers/Investigation_of_June_2020.pdf
+ create mode 100644 Papers/Reviews of Geophysics - 2012 - Ginoux.pdf
+ create mode 100644 Papers/The_Atmospheri_Drivers_of.pdf
+ create mode 100644 Papers/The_dust_load_and.pdf
+ create mode 100644 Papers/acp-21-12359-2021.pdf
+ create mode 100644 Papers/bams-BAMS-D-21-0014.1.pdf
+Kadens-MacBook-Pro-689:Dust_Research kadenhuber$ git merge
+fatal: refusing to merge unrelated histories
+Kadens-MacBook-Pro-689:Dust_Research kadenhuber$ git pull --rebase origin main
+error: cannot pull with rebase: You have unstaged changes.
+error: please commit or stash them.
+Kadens-MacBook-Pro-689:Dust_Research kadenhuber$ git add .
+Kadens-MacBook-Pro-689:Dust_Research kadenhuber$ git commit -m "Commiting."
+[main 07dc974] Commiting.
+ 19 files changed, 15024 insertions(+)
+ create mode 100644 .DS_Store
+ create mode 100644 Meetings/.DS_Store
+ create mode 100644 Meetings/10202023/.DS_Store
+ create mode 100644 Meetings/10202023/.notes.txt.swo
+ create mode 100644 Meetings/10202023/notes.txt
+ create mode 100644 Meetings/10202023/terminal_work
+ create mode 100644 Meetings/10302023/notes.txt
+ create mode 100644 Meetings/11032023/notes.txt
+ create mode 100644 Meetings/First_meeting/(10.2.23)_Installing_Packages.txt
+ create mode 100644 Meetings/First_meeting/(10.4.23)_Part1_Installing_the_packages_correctly.txt
+ create mode 100644 Meetings/First_meeting/(10.4.23)_Part2_Installing_the_packages_correctly.txt
+ create mode 100644 Meetings/First_meeting/(10.5.23).txt
+ create mode 100644 Meetings/First_meeting/(10.9.23) Meeting
+ create mode 100644 Meetings/First_meeting/10.4.23_Part3.txt
+ create mode 100644 Meetings/Week_of_Oct23_errors_email/.DS_Store
+ create mode 100644 Meetings/Week_of_Oct23_errors_email/error_message.txt
+ create mode 100644 Meetings/Week_of_Oct23_errors_email/program_cell.txt
+ create mode 100644 dustserver_names.png
+Kadens-MacBook-Pro-689:Dust_Research kadenhuber$ git pull --rebase origin main
+From github.com:kwhuber/African_Dust_Research
+ * branch            main       -> FETCH_HEAD
+warning: skipped previously applied commit 3c2c0d4
+hint: use --reapply-cherry-picks to include skipped commits
+hint: Disable this message with "git config advice.skippedCherryPicks false"
+warning: Cannot merge binary files: Code/.DS_Store (HEAD vs. 484db1b (Added new code.))
+Auto-merging Code/.DS_Store
+CONFLICT (add/add): Merge conflict in Code/.DS_Store
+warning: Cannot merge binary files: Code/Four_Datasets_Exercise/.DS_Store (HEAD vs. 484db1b (Added new code.))
+Auto-merging Code/Four_Datasets_Exercise/.DS_Store
+CONFLICT (add/add): Merge conflict in Code/Four_Datasets_Exercise/.DS_Store
+warning: Cannot merge binary files: Code/Four_Datasets_Exercise/Difference_of_Reanalysis_and_Satellite/.DS_Store (HEAD vs. 484db1b (Added new code.))
+Auto-merging Code/Four_Datasets_Exercise/Difference_of_Reanalysis_and_Satellite/.DS_Store
+CONFLICT (add/add): Merge conflict in Code/Four_Datasets_Exercise/Difference_of_Reanalysis_and_Satellite/.DS_Store
+Auto-merging Code/Four_Datasets_Exercise/Difference_of_Reanalysis_and_Satellite/difference_of_three_datasets_p10_AOD_Climatology_Global_MODIS_Terra.py
+CONFLICT (add/add): Merge conflict in Code/Four_Datasets_Exercise/Difference_of_Reanalysis_and_Satellite/difference_of_three_datasets_p10_AOD_Climatology_Global_MODIS_Terra.py
+error: could not apply 484db1b... Added new code.
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 484db1b... Added new code.
+Kadens-MacBook-Pro-689:Dust_Research kadenhuber$ 
