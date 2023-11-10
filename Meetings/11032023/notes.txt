@@ -1,3 +1,0 @@
-Questions: 
-1. How do I make one figure that take the difference of all the days of the event? 
-
