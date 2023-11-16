@@ -1,3 +1,0 @@
-VIIRS represents the satellite data (i.e. what actually occured). The Reanalysis data (EAC4, MEERA2, and NAAPS) are resimulating the event. We are striving to get Reanalysis as close to satellite data as possible in hopes to improve forecasting for future events. 
-
-Additionally, it can be noted that the plot over land has higher AOD concentration at the beginning of the event that and later it decreases as the dust propogates westward. In the plot over the ocean, AOD concentration is lower at the onset of the event but then increases as dust propogates westward.  
