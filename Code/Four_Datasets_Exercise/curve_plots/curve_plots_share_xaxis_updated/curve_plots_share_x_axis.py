@@ -257,21 +257,21 @@ axs[1].xaxis.set_major_formatter(mdates.DateFormatter('%m-%d'))
 # Rotate the tick labels for better readability
 plt.setp(axs[1].xaxis.get_majorticklabels(), rotation=45)
 # Set the fontsize for the tick labels
-axs[1].xaxis.set_tick_params(labelsize=7)
+axs[1].xaxis.set_tick_params(labelsize=9)
 
 # Set the y-axis range of the first subplot
 axs[0].set_ylim(0.3, 1.7)
 # Set the y-axis tick step of the first subplot
 axs[0].set_yticks(np.arange(0.4, 1.7, 0.4))
 # Set the fontsize of y-axis tick labels for the first plot
-axs[0].tick_params(axis='y', labelsize=7)
+axs[0].tick_params(axis='y', labelsize=9)
 
 # Set the y-axis range of the second subplot
 axs[1].set_ylim(0.3, 1.0)
 # Set the y-axis tick step of the second subplot
 axs[1].set_yticks(np.arange(0.3, 1.0, 0.2))
 # Set the fontsize of y-axis tick labels for the second plot
-axs[1].tick_params(axis='y', labelsize=7)
+axs[1].tick_params(axis='y', labelsize=9)
 
 for i, (region_name, region_coords) in enumerate(regions.items()):
     # Select the region
@@ -307,13 +307,13 @@ for i, (region_name, region_coords) in enumerate(regions.items()):
     axs[i].plot(aod4_mean['time'], aod4_mean, label='NAAPS')
 
     # Set titles and labels
-    axs[0].set_title(f'AOD in {first_region}',fontsize=8)
-    axs[1].set_title(f'AOD in {second_region}',fontsize=8)
+    axs[0].set_title(f'AOD in {first_region}',fontsize=9)
+    axs[1].set_title(f'AOD in {second_region}',fontsize=9)
     axs[i].set_ylabel('AOD')
     axs[1].set_xlabel('Date (Year of 2020)')
     plt.xlim(pd.Timestamp('2020-06-14'), pd.Timestamp('2020-06-28'))
 
-    axs[i].legend(fontsize=9)
+axs[0].legend(fontsize=9)
 
 # Show the plot
 plt.show()
