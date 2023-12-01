@@ -112,26 +112,6 @@ def map_conf(ax):
     ax.add_feature(cfeature.COASTLINE, linewidth=0.2, )#zorder=0, alpha=1)
     ax.add_feature(cfeature.LAND,      color='silver')#'oldlace')#'whitesmoke')
     ax.add_feature(cfeature.OCEAN,     color='silver')#'aliceblue')#'whitesmoke')
-    # ax.add_feature(cfeature.BORDERS,   linewidth=0.2, zorder=1, alpha=1)
-    # ax.add_feature(cfeature.LAKES,     linewidth=0.2, zorder=1)
-    # ax.add_feature(cfeature.STATES,    linewidth=0.2, zorder=1, alpha=1)
-    # ax.outline_patch.set_linewidth(0.5)
-
-    # lon_formatter = LongitudeFormatter(zero_direction_label=False)
-    # lat_formatter = LatitudeFormatter()
-    # ax.xaxis.set_major_formatter(lon_formatter)
-    # ax.yaxis.set_major_formatter(lat_formatter)
-    # ax.xaxis.set_minor_locator(ticker.MultipleLocator(10))
-    # ax.yaxis.set_minor_locator(ticker.MultipleLocator(10))
-    # plt.setp(ax.get_xminorticklabels(), visible=False)
-    # plt.setp(ax.get_yminorticklabels(), visible=False)
-    # equator = ax.gridlines(ylocs=[0],draw_labels=False,linewidth=0.1,linestyle=(0,(5,10)), color='k', )
-    # green   = ax.gridlines(xlocs=[0],draw_labels=False,linewidth=0.1,linestyle=(0,(5,10)), color='k', )#edgecolor='k')
-
-    # # ax.set_xticklabels([])
-    # # ax.set_yticklabels([])
-    # ax.xaxis.set_visible(True)
-    # ax.yaxis.set_visible(True)
 
 # =================| color bar|===============================================
 '''
@@ -149,8 +129,8 @@ def color_bar(fig, map, cax=None, ax=None, label='color bar label', orientation=
     if orientation=='horizontal':
         rotation=0
         pad=0.02
-        labelpad=10
-        labelsize=14
+        labelpad=15
+        labelsize=8
     elif orientation=='vertical':
         rotation=-90
         labelpad=25
@@ -184,17 +164,6 @@ def color_bar(fig, map, cax=None, ax=None, label='color bar label', orientation=
 
     cbar.ax.xaxis.set_ticks_position('bottom')
     cbar.set_ticks(levs[::tickstep])
-    #cbar.minorticks_on()
-    #   cbar.minorticks_on()
-    #   cbar.ax.tick_params(axis='x', which='both', direction='out', left=True, right=True) #, labelsize=12)
-    #   # cbar.ax.locator_params(nbins=9) # max number
-    #   xtick_value = np.arange(0,5+0.1,1)/10.
-    #   xtick_label = [ str(tmp) for tmp in xtick_value]
-    #   cbar.ax.set_xticks(xtick_value)
-    #   cbar.ax.set_xticklabels(xtick_label, fontsize=11)
-    #   # cbar.ax.set_xlabel('jinqinjian', size=12, labelpad=-45, position=(0.48, 0.), )
-    #   cbar.ax.set_yticklabels('', fontsize=10)
-    #   cbar.set_label('MODIS DOD (2003–2020)', size=12, rotation=0, labelpad=2)#, position=(0., 0.), )
     return cbar
 
 
@@ -337,7 +306,7 @@ fig, axs = plt.subplots(5,3,
                         #sets the spacing between the subplots with a small horizontal space (wsapce) and vertical space (hspace). More parameters like figsize and constrained_layout are set to customize size and layout.
                         **{'figsize': [10, 8], 'constrained_layout': False},
                         )
-plt.subplots_adjust(hspace= -0.3, wspace=0.03)
+plt.subplots_adjust(hspace= -0.18, wspace=0.06)
 
 
 #Prints the axs varialbe which contains references to the individual subplots creaetd in the previous step.
@@ -368,52 +337,56 @@ for idx, ax in enumerate(axs):
     #Configures the maps settings for the current subplot.
     map_conf(ax)
 
+    # Add longitude tick marks to the left side of the first column
+    minLon = -110; maxLon = 10
+    minLat = 0;  maxLat = 50
+
     # Y-axis
     if idx == 0:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 1:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 2:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 3:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 4:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
 
     # X-axis
     if idx == 4:
@@ -421,28 +394,28 @@ for idx, ax in enumerate(axs):
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
     if idx == 9:
         ax.set_xticks(np.arange(minLon, maxLon + 1, 10))  # Adjust the tick interval as needed
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
     if idx == 14:
         ax.set_xticks(np.arange(minLon, maxLon + 1, 10))  # Adjust the tick interval as needed
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
 
 
     ax.text(-107, 3, title[idx], fontsize=10) #reformats where the data shows up on the figure.
@@ -489,7 +462,7 @@ fig, axs = plt.subplots(5,3,
                         #sets the spacing between the subplots with a small horizontal space (wsapce) and vertical space (hspace). More parameters like figsize and constrained_layout are set to customize size and layout.
                         **{'figsize': [10, 8], 'constrained_layout': False},
                         )
-plt.subplots_adjust(hspace= -0.3, wspace=0.03)
+plt.subplots_adjust(hspace= -0.18, wspace=0.06)
 
 #Prints the axs varialbe which contains references to the individual subplots creaetd in the previous step.
 print(axs)
@@ -501,7 +474,7 @@ axs = axs.transpose().flat
 cf_list = []
 
 #A list of subplot titles.
-title = ['June 14','June 15','June 16','June 17','June 18','June 19','June 20','June 21','June 22','June 23','June 24','June 25','June 26','June 27','June 28', ]    
+title = ['June 14','June 15','June 16','June 17','June 18','June 19','June 20','June 21','June 22','June 23','June 24','June 25','June 26','June 27','June 28', ]
 
 #A color map (colormap) for visualizing data.
 cmap=plot.get_cmap('MPL_YlOrBr')
@@ -529,46 +502,46 @@ for idx, ax in enumerate(axs):
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 1:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 2:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 3:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 4:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
 
     # X-axis
     if idx == 4:
@@ -576,28 +549,28 @@ for idx, ax in enumerate(axs):
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
     if idx == 9:
         ax.set_xticks(np.arange(minLon, maxLon + 1, 10))  # Adjust the tick interval as needed
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
     if idx == 14:
         ax.set_xticks(np.arange(minLon, maxLon + 1, 10))  # Adjust the tick interval as needed
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
 
     ax.text(-107, 3, title[idx], fontsize=10) #reformats where the data shows up on the figure.
     cf_list += [ax.pcolormesh(data.lon[::step], data.lat[::step], data[idx, ::step, ::step],
@@ -634,7 +607,7 @@ fig, axs = plt.subplots(5, 3,
                         subplot_kw={'projection': proj_map},
                         figsize=[10, 8],
                         constrained_layout=False)
-plt.subplots_adjust(hspace= -0.3, wspace=0.03)
+plt.subplots_adjust(hspace= -0.18, wspace=0.06)
 
 # Convert axs to a 1D array
 axs = axs.transpose().flat
@@ -663,46 +636,46 @@ for idx, ax in enumerate(axs):
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 1:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 2:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 3:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 4:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
 
     # X-axis
     if idx == 4:
@@ -710,28 +683,28 @@ for idx, ax in enumerate(axs):
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
     if idx == 9:
         ax.set_xticks(np.arange(minLon, maxLon + 1, 10))  # Adjust the tick interval as needed
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
     if idx == 14:
         ax.set_xticks(np.arange(minLon, maxLon + 1, 10))  # Adjust the tick interval as needed
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
 
     # Use .sel() with 'method' set to 'nearest' to select the nearest available date
     ds6_data = ds6['TOTEXTTAU'].sel(time=pd.to_datetime(time_values[idx]), method='nearest')
@@ -754,8 +727,8 @@ difference_ticks = np.arange(-1, 1.1, 0.2)
 
 # Create and customize a color bar based on the pseudocolor plots in cf_list[4].
 cb = plt.colorbar(cf_list[4], cax=cb_ax, orientation='horizontal', ticks=difference_ticks, extend='both')
-cb.set_label("Difference Between MEERA2 Reanalysis and MEERA2 Satellite")
-cb.ax.tick_params(labelsize=6)  # Adjusts the font size
+cb.set_label("Difference Between MEERA2 Reanalysis and MEERA2 Satellite", fontsize=14, labelpad=15)
+cb.ax.tick_params(labelsize=8)  # Adjusts the font size
 
 plt.show()
 
@@ -776,7 +749,7 @@ fig, axs = plt.subplots(5,3,
                         #sets the spacing between the subplots with a small horizontal space (wsapce) and vertical space (hspace). More parameters like figsize and constrained_layout are set to customize size and layout.
                         **{'figsize': [10, 8], 'constrained_layout': False},
                         )
-plt.subplots_adjust(hspace= -0.3, wspace=0.03)
+plt.subplots_adjust(hspace= -0.18, wspace=0.06)
 
 #Prints the axs varialbe which contains references to the individual subplots creaetd in the previous step.
 print(axs)
@@ -812,46 +785,46 @@ for idx, ax in enumerate(axs):
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 1:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 2:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 3:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 4:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
 
     # X-axis
     if idx == 4:
@@ -859,28 +832,28 @@ for idx, ax in enumerate(axs):
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
     if idx == 9:
         ax.set_xticks(np.arange(minLon, maxLon + 1, 10))  # Adjust the tick interval as needed
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
     if idx == 14:
         ax.set_xticks(np.arange(minLon, maxLon + 1, 10))  # Adjust the tick interval as needed
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
 
 
     ax.text(-107, 3, title[idx], fontsize=10) #reformats where the data shows up on the figure.
@@ -929,7 +902,7 @@ fig, axs = plt.subplots(5,3,
                         #sets the spacing between the subplots with a small horizontal space (wsapce) and vertical space (hspace). More parameters like figsize and constrained_layout are set to customize size and layout.
                         **{'figsize': [10, 8], 'constrained_layout': False},
                         )
-plt.subplots_adjust(hspace= -0.3, wspace=0.03)
+plt.subplots_adjust(hspace= -0.18, wspace=0.06)
 
 #Prints the axs varialbe which contains references to the individual subplots creaetd in the previous step.
 print(axs)
@@ -965,46 +938,46 @@ for idx, ax in enumerate(axs):
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 1:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 2:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 3:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 4:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
 
     # X-axis
     if idx == 4:
@@ -1012,28 +985,28 @@ for idx, ax in enumerate(axs):
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
     if idx == 9:
         ax.set_xticks(np.arange(minLon, maxLon + 1, 10))  # Adjust the tick interval as needed
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
     if idx == 14:
         ax.set_xticks(np.arange(minLon, maxLon + 1, 10))  # Adjust the tick interval as needed
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
 
     ax.text(-107, 3, title[idx], fontsize=10) #reformats where the data shows up on the figure.
     cf_list += [ax.pcolormesh(data.lon[::step], data.lat[::step], data[idx, ::step, ::step],
@@ -1070,7 +1043,7 @@ fig, axs = plt.subplots(5, 3,
                         subplot_kw={'projection': proj_map},
                         figsize=[10, 8],
                         constrained_layout=False)
-plt.subplots_adjust(hspace= -0.3, wspace=0.03)
+plt.subplots_adjust(hspace= -0.18, wspace=0.06)
 
 # Convert axs to a 1D array
 axs = axs.transpose().flat
@@ -1098,46 +1071,46 @@ for idx, ax in enumerate(axs):
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 1:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 2:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 3:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 4:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
 
     # X-axis
     if idx == 4:
@@ -1145,28 +1118,28 @@ for idx, ax in enumerate(axs):
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
     if idx == 9:
         ax.set_xticks(np.arange(minLon, maxLon + 1, 10))  # Adjust the tick interval as needed
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
     if idx == 14:
         ax.set_xticks(np.arange(minLon, maxLon + 1, 10))  # Adjust the tick interval as needed
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
 
     # Use .sel() with 'method' set to 'nearest' to select the nearest available date
     ds8_data = ds8['aod550'].sel(time=pd.to_datetime(time_values[idx]), method='nearest')
@@ -1195,8 +1168,8 @@ cb_ax = fig.add_axes([0.21, 0.07, 0.6, 0.02])
 
 # Create and customize a color bar based on the pseudocolor plots in cf_list[4].
 cb = plt.colorbar(cf_list[4], cax=cb_ax, orientation='horizontal', ticks=difference_ticks, extend='both')
-cb.set_label("Difference Between EAC4 Reanalysis and EAC4 Satellite")
-cb.ax.tick_params(labelsize=6)  # Adjusts the font size
+cb.set_label("Difference Between EAC4 Reanalysis and EAC4 Satellite", fontsize=14, labelpad=15)
+cb.ax.tick_params(labelsize=8)  # Adjusts the font size
 
 plt.show()
 
@@ -1217,7 +1190,7 @@ fig, axs = plt.subplots(5,3,
                         #sets the spacing between the subplots with a small horizontal space (wsapce) and vertical space (hspace). More parameters like figsize and constrained_layout are set to customize size and layout.
                         **{'figsize': [10, 8], 'constrained_layout': False},
                         )
-plt.subplots_adjust(hspace= -0.3, wspace=0.03)
+plt.subplots_adjust(hspace= -0.18, wspace=0.06)
 
 #Prints the axs varialbe which contains references to the individual subplots creaetd in the previous step.
 print(axs)
@@ -1253,46 +1226,46 @@ for idx, ax in enumerate(axs):
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 1:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 2:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 3:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 4:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
 
     # X-axis
     if idx == 4:
@@ -1300,28 +1273,28 @@ for idx, ax in enumerate(axs):
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
     if idx == 9:
         ax.set_xticks(np.arange(minLon, maxLon + 1, 10))  # Adjust the tick interval as needed
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
     if idx == 14:
         ax.set_xticks(np.arange(minLon, maxLon + 1, 10))  # Adjust the tick interval as needed
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
 
     ax.text(-107, 3, title[idx], fontsize=10) #reformats where the data shows up on the figure.
     cf_list += [ax.pcolormesh(data.lon[::step], data.lat[::step], data[idx, ::step, ::step],
@@ -1366,7 +1339,7 @@ fig, axs = plt.subplots(5,3,
                         #sets the spacing between the subplots with a small horizontal space (wsapce) and vertical space (hspace). More parameters like figsize and constrained_layout are set to customize size and layout.
                         **{'figsize': [10, 8], 'constrained_layout': False},
                         )
-plt.subplots_adjust(hspace= -0.3, wspace=0.03)
+plt.subplots_adjust(hspace= -0.18, wspace=0.06)
 
 #Prints the axs varialbe which contains references to the individual subplots creaetd in the previous step.
 print(axs)
@@ -1402,46 +1375,46 @@ for idx, ax in enumerate(axs):
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 1:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 2:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 3:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 4:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
 
     # X-axis
     if idx == 4:
@@ -1449,28 +1422,28 @@ for idx, ax in enumerate(axs):
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
     if idx == 9:
         ax.set_xticks(np.arange(minLon, maxLon + 1, 10))  # Adjust the tick interval as needed
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
     if idx == 14:
         ax.set_xticks(np.arange(minLon, maxLon + 1, 10))  # Adjust the tick interval as needed
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
 
     ax.text(-107, 3, title[idx], fontsize=10) #reformats where the data shows up on the figure.
     cf_list += [ax.pcolormesh(data.lon[::step], data.lat[::step], data[idx, ::step, ::step],
@@ -1505,7 +1478,7 @@ fig, axs = plt.subplots(5, 3,
                         subplot_kw={'projection': proj_map},
                         figsize=[10, 8],
                         constrained_layout=False)
-plt.subplots_adjust(hspace= -0.3, wspace=0.03)
+plt.subplots_adjust(hspace= -0.18, wspace=0.06)
 
 # Convert axs to a 1D array
 axs = axs.transpose().flat
@@ -1533,46 +1506,46 @@ for idx, ax in enumerate(axs):
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 1:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 2:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 3:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
     if idx == 4:
         ax.set_yticks(np.arange(minLat, maxLat + 1, 5))  # Adjust the tick interval as needed
         ax.set_yticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lat in range(minLat, maxLat + 1, 10):
-            if lat == 0: 
-                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=5)
-            else: 
-                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=5)
+            if lat == 0:
+                ax.text(minLon - 2, lat, f'{lat} ', ha='right', va='center', fontsize=9)
+            else:
+                ax.text(minLon - 2, lat, f'{lat}°N ', ha='right', va='center', fontsize=9)
 
     # X-axis
     if idx == 4:
@@ -1580,28 +1553,28 @@ for idx, ax in enumerate(axs):
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
     if idx == 9:
         ax.set_xticks(np.arange(minLon, maxLon + 1, 10))  # Adjust the tick interval as needed
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
     if idx == 14:
         ax.set_xticks(np.arange(minLon, maxLon + 1, 10))  # Adjust the tick interval as needed
         ax.set_xticklabels([])  # Remove tick labels to avoid overlap with the plot
         # Add text to the left of tick marks
         for lon in range(-90, 1, 30):
-            if lon == 0: 
-                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=5)
+            if lon == 0:
+                ax.text(lon, minLat - 4, f'{lon} ', ha='center', va='top', fontsize=9)
                 break
-            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=5)
+            ax.text(lon, minLat - 4, f'{abs(lon)}°W ', ha='center', va='top', fontsize=9)
 
     # Use .sel() with 'method' set to 'nearest' to select the nearest available date
     ds10_data = ds10['total_aod'].sel(time=pd.to_datetime(time_values[idx]), method='nearest')
@@ -1630,7 +1603,7 @@ cb_ax = fig.add_axes([0.21, 0.07, 0.6, 0.02])
 
 # Create and customize a color bar based on the pseudocolor plots in cf_list[4].
 cb = plt.colorbar(cf_list[4], cax=cb_ax, orientation='horizontal', ticks=difference_ticks, extend='both')
-cb.set_label("Difference Between NAAPS Reanalysis and NAAPS Satellite")
-cb.ax.tick_params(labelsize=6)  # Adjusts the font size
+cb.set_label("Difference Between NAAPS Reanalysis and NAAPS Satellite", fontsize=14, labelpad=15)
+cb.ax.tick_params(labelsize=8)  # Adjusts the font size
 
 plt.show()
