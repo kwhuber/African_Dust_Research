@@ -1,0 +1,1 @@
+1. It is observed that reanalysis data underestimates satellite data in meera2, eac4, and naaps. The darker the blue in the difference figure shows the greater the difference between reanalysis and satellite. Thus, it is still tricky for reanalysis to recapture the event. 
